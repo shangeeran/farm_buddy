@@ -3,6 +3,7 @@ var age  = 24;
 var hasHobbies = true;
 
 var post  = 'sangeeth';
+var col = 'haniman';
 
 function userDetails(userName, userAge, userHobbies){
 
