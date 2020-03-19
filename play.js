@@ -2,7 +2,7 @@ var name = 'max';
 var age  = 24;
 var hasHobbies = true;
 
-var post = true;
+var post  = 'sangeeth';
 
 function userDetails(userName, userAge, userHobbies){
 
