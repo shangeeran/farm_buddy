@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {
     View,
@@ -8,6 +9,9 @@ import {
     TouchableHighlight,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import OnBoard from './OnBoard';
 
 export class Main extends Component {
     constructor() {
@@ -22,7 +26,9 @@ export class Main extends Component {
                     style={{width: '100%', height: '100%'}}>
                     <Text style={styles.t1}>Farm{'\n'}Buddy.</Text>
                     <Text style={styles.t2}> (Farmers' version) </Text>
-                    <TouchableHighlight style={styles.b1}>
+                    <TouchableHighlight
+                        style={styles.b1}
+                        onPress={() => this.props.navigation.push('OnBoard')}>
                         <Text style={styles.b2}>Get Started</Text>
                     </TouchableHighlight>
                 </ImageBackground>
@@ -66,3 +72,21 @@ const styles = StyleSheet.create({
         margin: 10,
     },
 });
+
+export default class App extends Component {
+    constructor() {
+        super();
+    }
+    render() {
+        return (
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Main" component={Main} />
+                    <Stack.Screen name="OnBoard" component={OnBoard} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        );
+    }
+}
+
+const Stack = createStackNavigator();
