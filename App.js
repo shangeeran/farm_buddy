@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // In App.js in a new project
 
 import React from 'react';
@@ -30,5 +31,19 @@ function HomeScreen({navigation}){
 //     </NavigationContainer>
 //   );
 // }
+=======
+import React, {Component} from 'react';
+
+class App extends Component {
+    render() {
+        return (
+            < div >
+            
+            < /div>
+    )
+        ;
+    }
+}
+>>>>>>> 31f2cfde895b941cc732875488359f25215e86e4
 
 export default App;
