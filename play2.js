@@ -19,3 +19,25 @@ console.log(hobbies.map(hobby =>
      'hobby : ' +hobby
 ));
 console.log(hobbies);
+
+hobbies.forEach(function(item,index,array) {
+    console.log(item,index,array);
+    
+});
+
+let newHobbies = hobbies.push("singing");
+console.log(hobbies);
+
+let lastR = hobbies.pop();
+console.log(hobbies);
+
+// let firstR = hobbies.shift();
+// console.log(hobbies);
+
+let newL = hobbies.unshift("dancing");
+console.log(hobbies);
+
+console.log(hobbies.indexOf("eating"));
+console.log(hobbies.splice(1));
+
+console.log(hobbies.slice());
