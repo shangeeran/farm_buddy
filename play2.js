@@ -41,3 +41,26 @@ console.log(hobbies.indexOf("eating"));
 console.log(hobbies.splice(1));
 
 console.log(hobbies.slice());
+
+
+const copiedA = [hobbies];
+console.log(copiedA);
+
+const copiedB = [...hobbies];
+console.log(copiedB);
+ 
+const copiedP = {person}
+console.log(copiedP);
+
+const copiedPB = {...person}
+console.log(copiedPB);
+
+const toArray = (arg1,arg2,arg3) => {
+    return [arg1,arg2,arg3];
+}
+console.log(toArray(1,2,3,4));
+
+const toArray1 = (...args) => {
+    return args;
+}
+console.log(toArray1(1,2,3,5,6,7));
