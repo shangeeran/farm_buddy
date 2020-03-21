@@ -10,5 +10,12 @@ const person = {
     
 }
 
-person.greet1();
-person.greet();
+const hobbies = ["swimming", "eating"];
+// for(let hobby of hobbies){
+//     console.log(hobby);
+// }
+
+console.log(hobbies.map(hobby => 
+     'hobby : ' +hobby
+));
+console.log(hobbies);
