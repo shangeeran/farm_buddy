@@ -11,56 +11,74 @@ const person = {
 }
 
 const hobbies = ["swimming", "eating"];
+const [hobby1,hobby2,hobby3] = hobbies;
+console.log(hobby1,hobby2,hobby3);
 // for(let hobby of hobbies){
 //     console.log(hobby);
 // }
 
-console.log(hobbies.map(hobby => 
-     'hobby : ' +hobby
-));
-console.log(hobbies);
-
-hobbies.forEach(function(item,index,array) {
-    console.log(item,index,array);
-    
-});
-
-let newHobbies = hobbies.push("singing");
-console.log(hobbies);
-
-let lastR = hobbies.pop();
-console.log(hobbies);
-
-// let firstR = hobbies.shift();
+// console.log(hobbies.map(hobby => 
+//      'hobby : ' +hobby
+// ));
 // console.log(hobbies);
 
-let newL = hobbies.unshift("dancing");
-console.log(hobbies);
+// hobbies.forEach(function(item,index,array) {
+//     console.log(item,index,array);
+    
+// });
 
-console.log(hobbies.indexOf("eating"));
-console.log(hobbies.splice(1));
+// let newHobbies = hobbies.push("singing");
+// console.log(hobbies);
 
-console.log(hobbies.slice());
+// let lastR = hobbies.pop();
+// console.log(hobbies);
+
+// // let firstR = hobbies.shift();
+// // console.log(hobbies);
+
+// let newL = hobbies.unshift("dancing");
+// console.log(hobbies);
+
+// console.log(hobbies.indexOf("eating"));
+// console.log(hobbies.splice(1));
+
+// console.log(hobbies.slice());
 
 
-const copiedA = [hobbies];
-console.log(copiedA);
+// const copiedA = [hobbies];
+// console.log(copiedA);
 
-const copiedB = [...hobbies];
-console.log(copiedB);
+// const copiedB = [...hobbies];
+// console.log(copiedB);
  
-const copiedP = {person}
-console.log(copiedP);
+// const copiedP = {person}
+// console.log(copiedP);
 
-const copiedPB = {...person}
-console.log(copiedPB);
+// const copiedPB = {...person}
+// console.log(copiedPB);
 
-const toArray = (arg1,arg2,arg3) => {
-    return [arg1,arg2,arg3];
+// const toArray = (arg1,arg2,arg3) => {
+//     return [arg1,arg2,arg3];
+// }
+// console.log(toArray(1,2,3,4));
+
+
+// const toArray1 = (...args) => {
+//     return args;
+// }
+// console.log(toArray1(1,2,3,5,6,7));
+
+// const printName = (pData) =>{
+//     console.log(pData.name);
+// }
+
+// printName(person);
+
+const printName1 = ({name}) => {
+    console.log(name);
 }
-console.log(toArray(1,2,3,4));
+printName1(person);
 
-const toArray1 = (...args) => {
-    return args;
-}
-console.log(toArray1(1,2,3,5,6,7));
+const {name, age} = person;
+console.log(name,age);
+
