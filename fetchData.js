@@ -1,1 +1,0 @@
-var firebase = firebase.database();
