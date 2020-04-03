@@ -44,7 +44,7 @@ n_inputs=60
 n_features=1
 
 #passing the inputs into timesereies generator object
-train_generator=TimeseriesGenerator(scaled_train,scaled_train,length=n_inputs,batch_size=1)
+train_generator=TimeseriesGenerator(scaled_train,scaled_train,length=n_inputs,batch_size=3)
 
 #creating sequential object
 model=Sequential()
@@ -62,7 +62,7 @@ model.compile(optimizer='adam',loss='mse')
 model.summary()
 
 #fitting
-model.fit_generator(train_generator,epochs=110)
+model.fit_generator(train_generator,epochs=140)
 
 # #calculating loss of the model
 model.history.history.keys()
