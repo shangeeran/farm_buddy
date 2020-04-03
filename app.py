@@ -9,6 +9,8 @@ with open('Coconut.csv', 'w', newline='') as csvfile:
     fieldnames = ['Date', 'Price']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    total_file = len(glob.glob("*.pdf"))
+    done = 0
     for file in glob.glob("*.pdf"):
         print(file)
         count +=1
@@ -27,20 +29,31 @@ with open('Coconut.csv', 'w', newline='') as csvfile:
         veg = ""
         for pages in read_pdf.pages:
             content = pages.extractText().split('\n')
+
             if 'Coconut oil' in content:
+                print(content)
                 veg_index = content.index('Coconut oil')
                 veg = content[veg_index -1]
+
+
+            if 'Coconut oil (Rs./Ltr)' in content:
+                print(content)
+                veg_index = content.index('Coconut oil (Rs./Ltr)')
+                veg = content[veg_index - 1]
+
 
         print("price :" + veg)
 
         # find report date and change format
         index = 0
         date = ""
+
         if  ' Developments - ' not in page_a_content and 'A Summary of Price' in page_a_content:
             index = page_a_content.index('A Summary of Price')
             du_date = page_a_content[index+2]
             p_date = du_date.replace(' Developments - ', '')
             date = parse(p_date)
+
         elif 'A Summary of Price' not in page_a_content and 'Daily Price Report' in page_a_content:
             index = page_a_content.index('Daily Price Report')
             du_date = page_a_content[index + 1]
@@ -60,12 +73,17 @@ with open('Coconut.csv', 'w', newline='') as csvfile:
                 dy = ''.join(parse_date.split(',')[:2])
                 date = parse(yr + "/" + mo + "/" + dy)
 
-
         else:
             index = page_a_content.index(' Developments - ')
-            date = parse(page_a_content[index + 1])
+            try :
+                date = parse(page_a_content[index + 1])
+            except ValueError:
+                date = parse(page_a_content[index -2])
+
 
         print("Date : " + str(date))
+        done +=1
+        print("Process :", done, "/", total_file)
         day = date.strftime('%d')
         month = date.strftime('%m')
         year = date.strftime('%Y')
