@@ -8,6 +8,10 @@ firebase.initializeApp({
 
 });
 
+// Get a database reference to our blog
 var db = firebase.database();
+
+
+
 
 
