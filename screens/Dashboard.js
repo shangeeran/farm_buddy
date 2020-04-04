@@ -6,15 +6,18 @@ export default class Dashboard extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.heading}>Dashboard</Text>
-                </View>
+                {/*<View>*/}
+                {/*    <Text style={styles.heading}>Dashboard</Text>*/}
+                {/*</View>*/}
+
                 <View style={styles.image1}>
-                    <Image source={require('../FarmBuddy/assets/img/snow.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('../assets/snow.png')} style={{width: 200, height: 180}} />
                 </View>
                 <View style={styles.button}>
                 </View>
-                <TouchableOpacity onPress={this._onPressButton}>
+                <TouchableOpacity style = {styles. Buttoncontainer2}
+                    onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
+                    >
                     <Text style = {styles.text1}>
                         Weather
                     </Text>
@@ -31,9 +34,12 @@ export default class Dashboard extends Component {
                     </Text>
                 </View>
                 <View style={styles.image2}>
-                    <Image source={require('../FarmBuddy/assets/img/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('../assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
                 </View>
-                <TouchableOpacity onPress={this._onPressButton}>
+
+                <TouchableOpacity style = {styles. Buttoncontainer1}
+					onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
+					>
                     <Text style = {styles.text2}>
                         Explore
                     </Text>
@@ -45,14 +51,14 @@ export default class Dashboard extends Component {
                 </View>
                 <ScrollView>
                     <ScrollView horizontal>
-                        <Image source={require('../FarmBuddy/assets/img/veg1.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg2.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg3.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg4.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg5.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg6.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg7.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../FarmBuddy/assets/img/veg8.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg1.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg2.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg3.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg4.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg5.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg6.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg7.png')} style={{width: 120, height: 120}} />
+                        <Image source={require('../assets/veg8.png')} style={{width: 120, height: 120}} />
                     </ScrollView>
                 </ScrollView>
             </View>
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
         // resizeMode: 'contain'
     },
     textAlign1: {
-        marginTop: '8%',
+        marginTop: '25%',
     },
     textAlign2: {
         marginTop: '5%',
@@ -136,30 +142,52 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
         color: '#fff',
-        borderWidth: 1,
-        borderRadius: 30,
-        paddingVertical: 5,
-        paddingHorizontal: 20,
-        borderColor: '#05C167',
-        backgroundColor: '#05C167',
-        marginTop: '-25%',
-        marginRight: '50%'
+        // borderWidth: 1,
+        // borderRadius: 30,
+        // paddingVertical: 5,
+        // paddingHorizontal: 20,
+        // borderColor: '#05C167',
+        // backgroundColor: '#05C167',
+        // marginTop: '-25%',
+        // marginRight: '50%'
     },
     text2: {
         fontFamily: 'serif',
         fontSize: 15,
         fontWeight: 'bold',
         color: '#fff',
-        borderWidth: 1,
-        borderRadius: 30,
-        paddingVertical: 5,
-        paddingHorizontal: 15,
-        borderColor: '#05C167',
-        backgroundColor: '#05C167',
-        marginTop: '-10%',
-        marginLeft: '55%'
+
     },
     text3: {
 
     },
+
+    Buttoncontainer1 : {
+        height:30,
+        justifyContent: "center",
+        alignItems: "center" ,
+        borderWidth: 1,
+        marginTop:-20,
+        marginLeft:150,
+        borderRadius: 30,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderColor: '#05C167',
+        backgroundColor: '#05C167',
+    },
+    Buttoncontainer2 : {
+        height:40,
+        justifyContent: "center",
+        // alignItems: "center" ,
+        borderWidth: 1,
+        marginRight: 200,
+        marginTop:-80,
+        // marginBottom:20,
+        borderRadius: 30,
+        paddingVertical: 10,
+        paddingHorizontal: 25,
+        borderColor: '#05C167',
+        backgroundColor: '#05C167',
+    }
+
 });
