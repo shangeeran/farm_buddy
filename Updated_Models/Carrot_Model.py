@@ -44,7 +44,7 @@ n_inputs=60
 n_features=1
 
 #passing the inputs into timesereies generator object
-train_generator=TimeseriesGenerator(scaled_train,scaled_train,length=n_inputs,batch_size=8)
+train_generator=TimeseriesGenerator(scaled_train,scaled_train,length=n_inputs,batch_size=20)
 
 #creating sequential object
 model=Sequential()
@@ -102,7 +102,7 @@ real_beans_price=test
 test["Predictions"]=true_predictions
 print(test)
 
-model.save("../Updated_Prediction_Models/Carrot.h5")
+model.save("../Updated_Prediction_Models/Carrot1.h5")
 
 
 

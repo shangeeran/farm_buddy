@@ -186,7 +186,7 @@ print("Accuracy : " + str(100 - error))
 
 print(
     "------------------------------------------------------------------------------------------------------------------")
-new_model = load_model("Updated_Prediction_Models/Carrot.h5")
+new_model = load_model("Updated_Prediction_Models/Carrot1.h5")
 dataSet = pd.read_csv('new_data/Carrot.csv')
 
 # splitting into training set and test set and converting to 2d numpy array
