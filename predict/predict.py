@@ -18,6 +18,13 @@ class Predict:
     carrot_model=""
     carrot_csv=""
 
+    coconut_model = ""
+    coconut_csv = ""
+
+    potatoes_model = ""
+    potatoes_csv = ""
+
+
     def __init__(self):
         self.beans_model = load_model("models/Beans.h5")
         self.beans_csv = pd.read_csv('csv/Beans.csv')
@@ -30,6 +37,12 @@ class Predict:
 
         self.carrot_model=load_model("models/Carrot.h5")
         self.carrot_csv =pd.read_csv('csv/Carrot.csv')
+
+        self.coconut_model=load_model("models/Coconut.h5")
+        self.coconut_csv = pd.read_csv('csv/Coconut.csv')
+
+        self.potatoes_model = load_model("models/Potatoes.h5")
+        self.potatoes_csv = pd.read_csv('csv/Potatoes.csv')
 
     def beans(self):
         new_model = self.beans_model
@@ -75,6 +88,84 @@ class Predict:
     def brinjal(self):
         new_model = self.brinjal_model
         dataSet = self.brinjal_csv
+
+        dataSet = dataSet.iloc[:, 1:2]
+
+        scaler = MinMaxScaler()
+
+        # fitting the training set into scaler object
+        scaler.fit(dataSet)
+
+        scaled_test = scaler.transform(dataSet)
+
+        n_inputs = 60
+        n_features = 1
+
+        test_predictions = []
+
+        # taking the last 60 prices to predict the next output
+        first_eval_batch = scaled_test[-n_inputs:]
+
+        # reshaping this to 3d array
+        current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+
+        for i in range(20):
+            # predicting the output by passing the currebt_batch
+            current_prediction = new_model.predict(current_batch)[0]
+
+            # appending the prediction to the test_predictions array
+            test_predictions.append(current_prediction)
+
+            # updating the current_batch
+            current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+
+        true_predictions = scaler.inverse_transform(test_predictions)
+        true_prediction_average = sum(true_predictions) / 20
+
+        return round(true_prediction_average[0])
+
+    def coconut(self):
+        new_model = self.coconut_model
+        dataSet = self.coconut_csv
+
+        dataSet = dataSet.iloc[:, 1:2]
+
+        scaler = MinMaxScaler()
+
+        # fitting the training set into scaler object
+        scaler.fit(dataSet)
+
+        scaled_test = scaler.transform(dataSet)
+
+        n_inputs = 60
+        n_features = 1
+
+        test_predictions = []
+
+        # taking the last 60 prices to predict the next output
+        first_eval_batch = scaled_test[-n_inputs:]
+
+        # reshaping this to 3d array
+        current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+
+        for i in range(20):
+            # predicting the output by passing the currebt_batch
+            current_prediction = new_model.predict(current_batch)[0]
+
+            # appending the prediction to the test_predictions array
+            test_predictions.append(current_prediction)
+
+            # updating the current_batch
+            current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+
+        true_predictions = scaler.inverse_transform(test_predictions)
+        true_prediction_average = sum(true_predictions) / 20
+
+        return round(true_prediction_average[0])
+
+    def potatoes(self):
+        new_model = self.potatoes_model
+        dataSet = self.potatoes_csv
 
         dataSet = dataSet.iloc[:, 1:2]
 
@@ -195,6 +286,9 @@ class Predict:
         brinjal = self.brinjal()
         cabbage = self.cabbage()
         carrot = self.carrot()
+        coconut = self.coconut()
+        potatoes = self.potatoes()
+
 
 
         list_crop = [{
@@ -202,24 +296,38 @@ class Predict:
             "Crop_code": "CR-001",
             "Month": time.strftime("%Y-%m"),
             "Price": beans
-        },{
-                    "Crop": "Brinjal",
-                    "Crop_code": "CR-002",
-                    "Month": time.strftime("%Y-%m"),
-                    "Price": brinjal
         },
         {
-                    "Crop": "Cabbage",
-                    "Crop_code": "CR-003",
-                    "Month": time.strftime("%Y-%m"),
-                    "Price": cabbage
+            "Crop": "Brinjal",
+            "Crop_code": "CR-002",
+            "Month": time.strftime("%Y-%m"),
+            "Price": brinjal
+        },
+        {
+            "Crop": "Cabbage",
+            "Crop_code": "CR-003",
+            "Month": time.strftime("%Y-%m"),
+            "Price": cabbage
+        },
+        {
+            "Crop": "Carrot",
+            "Crop_code": "CR-004",
+            "Month": time.strftime("%Y-%m"),
+            "Price": carrot
+        },
+            {
+                "Crop": "Coconut",
+                "Crop_code": "CR-005",
+                "Month": time.strftime("%Y-%m"),
+                "Price": coconut
             },
             {
-                "Crop": "Carrot",
-                "Crop_code": "CR-004",
+                "Crop": "Potatoes",
+                "Crop_code": "CR-006",
                 "Month": time.strftime("%Y-%m"),
-                "Price": carrot
-            }
+                "Price": potatoes
+            },
+
         ]
         print(list_crop)
 
