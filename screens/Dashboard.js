@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
                         Weather
                     </Text>
                 </TouchableOpacity>
-                <View style={styles.textAlign1}>
+                <View style={styles.textAlign}>
                     <Text style={styles.subText}>Prices are {"\n"}so
                         <Text>{' '}</Text>
                         <Text style={{fontWeight: 'bold', fontSize: 36,}}>
@@ -39,11 +39,6 @@ export default class Dashboard extends Component {
                         Explore
                     </Text>
                 </TouchableOpacity>
-                <View style={styles.textAlign2}>
-                    <Text style={{fontSize: 22,}}>
-                        Crops in demand
-                    </Text>
-                </View>
             </View>
         );
     }
@@ -55,21 +50,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // justifyContent: 'center',
     },
+    subText: {
+        // marginBottom: '30%',
+        marginLeft: '50%',
+        fontSize: 22,
+        fontWeight: 'bold'
+    },
     image1: {
         marginTop: '10%',
         marginLeft: '55%',
         marginRight: '2%',
     },
     image2: {
-        marginTop: '-30%',
+        marginTop: '-25%',
         marginRight: '50%',
     },
-    textAlign1: {
-        marginTop: '25%',
+    textAlign: {
+        marginTop: '30%',
     },
-    textAlign2: {
-        marginTop: '5%',
-    },
+
     text1: {
         fontFamily: 'serif',
         fontSize: 25,
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: '#fff',
-
     },
     buttonContainer1 : {
         height:40,
