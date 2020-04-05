@@ -1,23 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
-// import Weather from './Weather';
 
 export default class Dashboard extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {/*<View>*/}
-                {/*    <Text style={styles.heading}>Dashboard</Text>*/}
-                {/*</View>*/}
 
                 <View style={styles.image1}>
                     <Image source={require('../assets/snow.png')} style={{width: 200, height: 180}} />
                 </View>
-                <View style={styles.button}>
-                </View>
-                <TouchableOpacity style = {styles. Buttoncontainer2}
-                    onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
-                    >
+
+                <TouchableOpacity style = {styles. buttonContainer1}
+                                  onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
+                >
                     <Text style = {styles.text1}>
                         Weather
                     </Text>
@@ -37,9 +32,9 @@ export default class Dashboard extends Component {
                     <Image source={require('../assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
                 </View>
 
-                <TouchableOpacity style = {styles. Buttoncontainer1}
-					onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
-					>
+                <TouchableOpacity style = {styles. buttonContainer2}
+                                  onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
+                >
                     <Text style = {styles.text2}>
                         Explore
                     </Text>
@@ -49,18 +44,6 @@ export default class Dashboard extends Component {
                         Crops in demand
                     </Text>
                 </View>
-                <ScrollView>
-                    <ScrollView horizontal>
-                        <Image source={require('../assets/veg1.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg2.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg3.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg4.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg5.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg6.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg7.png')} style={{width: 120, height: 120}} />
-                        <Image source={require('../assets/veg8.png')} style={{width: 120, height: 120}} />
-                    </ScrollView>
-                </ScrollView>
             </View>
         );
     }
@@ -72,64 +55,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // justifyContent: 'center',
     },
-    heading: {
-        // backgroundColor: 'pink',
-        alignItems: 'center',
-        fontWeight: 'bold',
-        fontSize: 22,
-        paddingTop: '8%',
-        fontFamily: "serif",
-    },
-    subText: {
-        // marginBottom: '30%',
-        marginLeft: '50%',
-        fontSize: 22,
-        fontWeight: 'bold'
-    },
-    buttonContainer:{
-        marginTop: 20,
-        backgroundColor:'#00aeef',
-        borderRadius:10,
-    },
-    button1: {
-        // backgroundColor: '#green',
-        // borderColor: '#05C167',
-        // borderWidth: 5,
-        // borderRadius: 15,
-        paddingTop:'10%',
-        paddingRight: '45%',
-        // paddingBottom: '35%',
-    },
-    button2: {
-        // backgroundColor: '#green',
-        // borderColor: '#05C167',
-        // borderWidth: 5,
-        // borderRadius: 15,
-        paddingLeft: '55%'
-    },
     image1: {
         marginTop: '10%',
         marginLeft: '55%',
         marginRight: '2%',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // width: 20,
-        // height: 20,
-        // resizeMode: 'stretch',
-        // flex: 1,
-        // resizeMode: 'contain'
     },
     image2: {
         marginTop: '-30%',
-        // marginLeft: '-30%',
         marginRight: '50%',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // width: 20,
-        // height: 20,
-        // resizeMode: 'stretch',
-        // flex: 1,
-        // resizeMode: 'contain'
     },
     textAlign1: {
         marginTop: '25%',
@@ -142,14 +75,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
         color: '#fff',
-        // borderWidth: 1,
-        // borderRadius: 30,
-        // paddingVertical: 5,
-        // paddingHorizontal: 20,
-        // borderColor: '#05C167',
-        // backgroundColor: '#05C167',
-        // marginTop: '-25%',
-        // marginRight: '50%'
     },
     text2: {
         fontFamily: 'serif',
@@ -158,11 +83,20 @@ const styles = StyleSheet.create({
         color: '#fff',
 
     },
-    text3: {
-
+    buttonContainer1 : {
+        height:40,
+        justifyContent: "center",
+        // alignItems: "center" ,
+        borderWidth: 1,
+        marginRight: 200,
+        marginTop:-80,
+        borderRadius: 30,
+        paddingVertical: 10,
+        paddingHorizontal: 25,
+        borderColor: '#05C167',
+        backgroundColor: '#05C167',
     },
-
-    Buttoncontainer1 : {
+    buttonContainer2 : {
         height:30,
         justifyContent: "center",
         alignItems: "center" ,
@@ -175,19 +109,4 @@ const styles = StyleSheet.create({
         borderColor: '#05C167',
         backgroundColor: '#05C167',
     },
-    Buttoncontainer2 : {
-        height:40,
-        justifyContent: "center",
-        // alignItems: "center" ,
-        borderWidth: 1,
-        marginRight: 200,
-        marginTop:-80,
-        // marginBottom:20,
-        borderRadius: 30,
-        paddingVertical: 10,
-        paddingHorizontal: 25,
-        borderColor: '#05C167',
-        backgroundColor: '#05C167',
-    }
-
 });
