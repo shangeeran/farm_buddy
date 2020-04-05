@@ -9,8 +9,8 @@ dataSet=pd.read_csv('../new_data/Red-Onions.csv')
 print(len(dataSet)-20)
 
 #splitting into training set and test set and converting to 2d numpy array
-train=dataSet.iloc[:769,1:2]
-test=dataSet.iloc[769:,1:2]
+train=dataSet.iloc[:771,1:2]
+test=dataSet.iloc[771:,1:2]
 
 #importing minmaxscakler to normalise the dataset
 from sklearn.preprocessing import MinMaxScaler
@@ -40,7 +40,7 @@ from keras.layers import Dense
 from keras.layers import LSTM
 from keras.layers import Dropout
 
-n_inputs=80
+n_inputs=60
 n_features=1
 
 #passing the inputs into timesereies generator object
@@ -62,7 +62,7 @@ model.compile(optimizer='adam',loss='mse')
 model.summary()
 
 #fitting
-model.fit_generator(train_generator,epochs=40)
+model.fit_generator(train_generator,epochs=20)
 
 # #calculating loss of the model
 model.history.history.keys()
