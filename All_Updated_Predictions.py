@@ -518,7 +518,7 @@ scaler.fit(train)
 scaled_train = scaler.transform(train)
 scaled_test = scaler.transform(test)
 
-n_inputs = 60
+n_inputs = 20
 n_features = 1
 
 test_predictions = []

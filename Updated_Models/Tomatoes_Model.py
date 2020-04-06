@@ -51,18 +51,18 @@ model=Sequential()
 
 #creating  the input layer and 2  hidden layer with 150 neurones with rectifier function
 model.add(LSTM(150,activation='relu',return_sequences=True,input_shape=(n_inputs,n_features)))
-model.add(Dropout(0.2))
+model.add(Dropout(0.3))
 model.add(LSTM(150,activation='relu',return_sequences=True))
-model.add(Dropout(0.2))
+model.add(Dropout(0.3))
 model.add(LSTM(150,activation='relu'))
-model.add(Dropout(0.2))
+model.add(Dropout(0.3))
 model.add(Dense(1))
 model.compile(optimizer='adam',loss='mse')
 
 model.summary()
 
 #fitting
-model.fit_generator(train_generator,epochs=25)
+model.fit_generator(train_generator,epochs=40)
 
 # #calculating loss of the model
 model.history.history.keys()
@@ -102,7 +102,7 @@ real_beans_price=test
 test["Predictions"]=true_predictions
 print(test)
 
-model.save("../Updated_Prediction_Models/Tomatoes.h5")
+model.save("../Updated_Prediction_Models/Tomatoes1.h5")
 
 
 
