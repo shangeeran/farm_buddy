@@ -16,6 +16,23 @@ export default class proSetting2 extends React.Component {
                         <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
+                    <View style={styles.textVisible}>
+                        <Text>Description</Text>
+                    </View>
+                    <TextInput
+                        style={styles.input}
+                        autoCapitalize="none"
+                        onChangeText={val => this.onChangeText('Description', val)}
+                    />
+                    <View style={styles.textVisible}>
+                        <Text>Crops</Text>
+                    </View>
+                    <TextInput
+                        style={styles.input}
+                        autoCapitalize="none"
+                        onChangeText={val => this.onChangeText('Crops', val)}
+                    />
+
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
