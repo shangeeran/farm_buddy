@@ -1,33 +1,6 @@
-import React, {Component} from 'react';
-import {StyleSheet, Button, View, Text, Image, TextInput, ScrollView} from 'react-native';
-
-
-// export default class App extends Component {
-//     render() {
-//         return (
-//             <View style={styles.image1}>
-//                 <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
-//             </View>
-//         );
-//     }
-// }
-//
-// const styles = StyleSheet.create({
-//     container : {
-//         flex: 1,
-//         alignItems: 'center',
-//         // justifyContent: 'center',
-//     },
-//     image1: {
-//         marginTop: '5%',
-//         flexGrow:1,
-//         height:null,
-//         width:null,
-//         alignItems: 'center',
-//         // justifyContent:'center',
-//     },
-//
-// });
+// SignUp.js
+import React from 'react';
+import {View, Button, TextInput, StyleSheet} from 'react-native';
 
 export default class SignUp extends React.Component {
     state = {
@@ -52,9 +25,6 @@ export default class SignUp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.image1}>
-                    <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
-                </View>
                 <TextInput
                     style={styles.input}
                     placeholder="Username"
@@ -109,4 +79,3 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-
