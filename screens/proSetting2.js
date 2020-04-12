@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
         height: 150,
         backgroundColor: '#FFFFFF',
         marginTop: 5,
+        marginLeft:10,
         marginBottom: 15,
         padding: 8,
         color: 'black',
@@ -70,10 +71,11 @@ const styles = StyleSheet.create({
     },
     bottomContainer: {
         // flex: 1,
-        borderTopLeftRadius: 60,
-        borderTopRightRadius: 60,
-        backgroundColor: '#FFFFFF',
-        height: '80%',
+        borderRadius: 20,
+        marginBottom: 10,
+        backgroundColor: '#EFEFEF',
+        height: '62%',
+        width: '90%'
         // overflow: 'hidden',
     },
     proImg: {
@@ -81,6 +83,8 @@ const styles = StyleSheet.create({
     },
     textVisible: {
         paddingRight: '60%',
+        marginTop: 10,
+        marginLeft: 10,
         fontSize: 18,
     },
     buttonContainer : {
