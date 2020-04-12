@@ -16,23 +16,24 @@ export default class proSetting2 extends React.Component {
                         <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
-                    <View style={styles.textVisible}>
-                        <Text>Description</Text>
+                    <View style={styles.bottomContainer}>
+                        <View style={styles.textVisible}>
+                            <Text>Description</Text>
+                        </View>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={val => this.onChangeText('Description', val)}
+                        />
+                        <View style={styles.textVisible}>
+                            <Text>Crops</Text>
+                        </View>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={val => this.onChangeText('Crops', val)}
+                        />
                     </View>
-                    <TextInput
-                        style={styles.input}
-                        autoCapitalize="none"
-                        onChangeText={val => this.onChangeText('Description', val)}
-                    />
-                    <View style={styles.textVisible}>
-                        <Text>Crops</Text>
-                    </View>
-                    <TextInput
-                        style={styles.input}
-                        autoCapitalize="none"
-                        onChangeText={val => this.onChangeText('Crops', val)}
-                    />
-
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
@@ -49,9 +50,15 @@ export default class proSetting2 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF'
+    },
     input: {
         width: 350,
-        height: 40,
+        height: 150,
         backgroundColor: '#FFFFFF',
         marginTop: 5,
         marginBottom: 15,
@@ -61,10 +68,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    bottomContainer: {
+        // flex: 1,
+        borderTopLeftRadius: 60,
+        borderTopRightRadius: 60,
+        backgroundColor: '#FFFFFF',
+        height: '80%',
+        // overflow: 'hidden',
     },
     proImg: {
         padding: '5%'
