@@ -14,6 +14,10 @@ export default class proSettingThird extends React.Component {
                     <Text style={styles.text}>Successfully Changed!</Text>
                 </View>
 
+                <View style={styles.goBack}>
+                    <Button onPress={() => goBack()} color="#05C167" title="Go Back" />
+                </View>
+
             </View>
         );
     }
@@ -35,6 +39,9 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    goBack: {
+        paddingTop:15,
     }
 });
 
