@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Button, View, Text, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Switch, View, Text, Image, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
 export default class proSettingThird extends React.Component {
+    state = {switchValue:false}
+    toggleSwitch = (value) => {
+        //onValueChange of the switch this function will be called
+        this.setState({switchValue: value})
+        //state changes according to switch
+        //which will result in re-render the text
+    }
     render() {
         return (
             <KeyboardAwareScrollView
@@ -29,10 +36,26 @@ export default class proSettingThird extends React.Component {
                     <View style={styles.text}>
                         <Text>Push Notification</Text>
                     </View>
+                    {/*Text to show the text according to switch condition*/}
+                    <Text>{this.state.switchValue?'Switch is ON':'Switch is OFF'}</Text>
+                    {/*Switch with value set in constructor*/}
+                    {/*onValueChange will be triggered after switch condition changes*/}
+                    <Switch
+                        style={{marginTop:30}}
+                        onValueChange = {this.toggleSwitch}
+                        value = {this.state.switchValue}/>
 
                     <View style={styles.text}>
                         <Text>SMS Notification</Text>
                     </View>
+                    {/*Text to show the text according to switch condition*/}
+                    <Text>{this.state.switchValue?'Switch is ON':'Switch is OFF'}</Text>
+                    {/*Switch with value set in constructor*/}
+                    {/*onValueChange will be triggered after switch condition changes*/}
+                    <Switch
+                        style={{marginTop:30}}
+                        onValueChange = {this.toggleSwitch}
+                        value = {this.state.switchValue}/>
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
