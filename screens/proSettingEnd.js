@@ -8,7 +8,7 @@ export default class proSettingThird extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.proImg}>
-                    <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
+                    <Image source={require('./assets/successful.jpg')} style={{width: 300, height: 300}} />
                 </View>
 
             </View>
