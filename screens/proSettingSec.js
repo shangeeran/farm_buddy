@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
-export default class proSetting2 extends React.Component {
+export default class proSettingSec extends React.Component {
     render() {
         return (
             <KeyboardAwareScrollView
