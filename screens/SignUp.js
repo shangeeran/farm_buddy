@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactChipsInput from 'react-native-chips';
 import {
     StyleSheet,
     Text,
@@ -28,6 +29,9 @@ export default class SignUpView extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <View>
+                    <Text style={styles.textStyle}>Sign Up</Text>
+                </View>
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.inputs}
@@ -68,14 +72,22 @@ export default class SignUpView extends Component {
                     />
                 </View>
 
+                <ReactChipsInput
+                    style={styles.inputContainer}
+                    label="Enter Fruits"
+                    initialChips={['Apple', 'Orange']}
+                    onChangeChips={chips => console.log(chips)}
+                    alertRequired={true}
+                    chipStyle={{borderColor: 'blue', backgroundColor: 'grey'}}
+                    inputStyle={{fontSize: 22}}
+                />
+
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
                     onPress={() => this.onClickListener('sign_up')}>
                     <Text style={styles.signUpText}>Sign up</Text>
                 </TouchableHighlight>
             </View>
-
-
         );
     }
 }
@@ -126,5 +138,11 @@ const styles = StyleSheet.create({
     },
     signUpText: {
         color: 'white',
+    },
+    textStyle: {
+        fontSize: 40,
+        textAlign: 'left',
+        bottom: 50,
+        right: 100,
     },
 });
