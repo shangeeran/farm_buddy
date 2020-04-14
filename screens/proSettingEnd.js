@@ -3,7 +3,7 @@ import {StyleSheet, Button, View, Text, Image, TouchableOpacity} from 'react-nat
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
 
-export default class proSettingThird extends React.Component {
+export default class proSettingEnd extends React.Component {
     render() {
         return (
             <View style={styles.container}>
