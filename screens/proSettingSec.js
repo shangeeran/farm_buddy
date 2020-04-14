@@ -37,7 +37,7 @@ export default class proSettingSec extends React.Component {
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
-                                      onPress={() => this.props.navigation.navigate('xxxx', { screenName: "xxxx" })}
+                                      onPress={() => this.props.navigation.navigate('proSettingThird', { screenName: "proSettingThird" })}
                     >
                         <Text style = {styles.textNext}>
                             Next
