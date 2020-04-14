@@ -14,9 +14,10 @@ export default class SignUpView extends Component {
     constructor(props) {
         super(props);
         state = {
-            fullName: '',
-            email: '',
-            password: '',
+            firstName: '',
+            lastName: '',
+            nicNumber: '',
+            district: '',
         };
     }
 
@@ -30,30 +31,40 @@ export default class SignUpView extends Component {
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.inputs}
-                        placeholder="Full name"
+                        placeholder="First Name"
                         keyboardType="email-address"
                         underlineColorAndroid="transparent"
-                        onChangeText={fullName => this.setState({fullName})}
+                        onChangeText={firstName => this.setState({firstName})}
                     />
                 </View>
 
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.inputs}
-                        placeholder="Email"
+                        placeholder="Last Name"
                         keyboardType="email-address"
                         underlineColorAndroid="transparent"
-                        onChangeText={email => this.setState({email})}
+                        onChangeText={lastName => this.setState({lastName})}
                     />
                 </View>
 
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.inputs}
-                        placeholder="Password"
-                        secureTextEntry={true}
+                        placeholder="NIC number"
+                        keyboardType="email-address"
                         underlineColorAndroid="transparent"
-                        onChangeText={password => this.setState({password})}
+                        onChangeText={nicNumber => this.setState({nicNumber})}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="District"
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
+                        onChangeText={district => this.setState({district})}
                     />
                 </View>
 
@@ -63,6 +74,8 @@ export default class SignUpView extends Component {
                     <Text style={styles.signUpText}>Sign up</Text>
                 </TouchableHighlight>
             </View>
+
+
         );
     }
 }
@@ -99,7 +112,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonContainer: {
-        top: 250,
+        top: 200,
         height: 45,
         flexDirection: 'row',
         justifyContent: 'center',
