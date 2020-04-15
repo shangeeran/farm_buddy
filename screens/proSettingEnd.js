@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     text: {
         marginTop:10,
         fontFamily: 'serif',
-        fontSize: 40,
-        fontWeight: 'bold',
+        fontSize: 30,
+        // fontWeight: 'bold',
         textAlign: 'center'
     },
     goBack: {
