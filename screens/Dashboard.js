@@ -7,7 +7,7 @@ export default class Dashboard extends Component {
             <View style={styles.container}>
 
                 <View style={styles.image1}>
-                    <Image source={require('../assets/snow.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('./assets/snow.png')} style={{width: 200, height: 180}} />
                 </View>
 
                 <TouchableOpacity style = {styles. buttonContainer1}
@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
                     </Text>
                 </View>
                 <View style={styles.image2}>
-                    <Image source={require('../assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('./assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
                 </View>
 
                 <TouchableOpacity style = {styles. buttonContainer2}
