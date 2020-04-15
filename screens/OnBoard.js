@@ -9,19 +9,19 @@ const Simple = () => (
         pages={[
             {
                 backgroundColor: '#fff',
-                image: <Image source={require('./assets/pic1.png')} style={{width: 150, height: 150}} />,
+                image: <Image source={require('./assets/pic1.png')} style={{width: 100%, height: 100%}} />,
                 title: 'Onboarding',
                 subtitle: 'Done with React Native Onboarding Swiper',
             },
             {
                 backgroundColor: '#fe6e58',
-                image: <Image source={require('./assets/pic2.png')} style={{width: 150, height: 150}} />,
+                image: <Image source={require('./assets/pic2.png')} style={{width: 100%, height: 100%}} />,
                 title: 'The Title',
                 subtitle: 'This is the subtitle that sumplements the title.',
             },
             {
                 backgroundColor: '#999',
-                image: <Image source={require('./assets/pic3.png')} style={{width: 150, height: 150}} />,
+                image: <Image source={require('./assets/pic3.png')} style={{width: 100%, height: 100%}} />,
                 title: 'Triangle',
                 subtitle: "Beautiful, isn't it?",
             },
