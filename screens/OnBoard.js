@@ -3,30 +3,27 @@ import { Image, View } from 'react-native';
 
 import Onboarding from 'react-native-onboarding-swiper';
 
-const Simple = () => (
+const OnBoard = () => (
     <Onboarding
         onDone={() => console.log('done')}
         pages={[
             {
-                backgroundColor: '#fff',
-                image: <Image source={require('./assets/pic1.png')} style={{width: 100%, height: 100%}} />,
-                title: 'Onboarding',
-                subtitle: 'Done with React Native Onboarding Swiper',
+                backgroundColor: '#ffffff',
+                image: <Image source={require('./assets/pic1.png')} style={{width: '100%', height: '100%'}} />,
+                title: 'No more Improper Knowledge',
             },
             {
-                backgroundColor: '#fe6e58',
-                image: <Image source={require('./assets/pic2.png')} style={{width: 100%, height: 100%}} />,
-                title: 'The Title',
-                subtitle: 'This is the subtitle that sumplements the title.',
+                backgroundColor: '#ffffff',
+                image: <Image source={require('./assets/pic2.png')} style={{width: '100%', height: '100%'}} />,
+                title: 'No more Harvest Wastage',
             },
             {
-                backgroundColor: '#999',
-                image: <Image source={require('./assets/pic3.png')} style={{width: 100%, height: 100%}} />,
-                title: 'Triangle',
-                subtitle: "Beautiful, isn't it?",
+                backgroundColor: '#ffffff',
+                image: <Image source={require('./assets/pic3.png')} style={{width: '100%', height: '100%'}} />,
+                title: 'Your Efforts Will Pay Off',
             },
         ]}
     />
 );
 
-export default Simple;
+export default OnBoard;
