@@ -1,49 +1,32 @@
-<<<<<<< HEAD
-// In App.js in a new project
-
 import React from 'react';
-import {View, Text, Button} from 'react-native';
-// import {NavigationContainer} from '@react-navigation/native';
-// import {createStackNavigator} from '@react-navigation/stack';
-import Details from './DetailsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-function HomeScreen({navigation}){
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Navigation on process</Text>
-        <Button
-            title="Go to Details"
-            onPress={() => navigation.push('Details')}
-        />
-    </View>
-  );
+import { DrawerContent } from './screens/DrawerContent';
+
+import MainTabScreen from './screens/MainTabScreen';
+import Dashboard from './screens/Dashboard';
+import Weather from './screens/Weather';
+import proSetting from './screens/proSetting';
+import proSettingSec from './screens/proSettingSec';
+import proSettingThird from './screens/proSettingThird';
+import proSettingEnd from './screens/proSettingEnd';
+
+const Drawer = createDrawerNavigator();
+
+
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+                <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+                <Drawer.Screen name="proSetting" component={proSetting} />
+                <Drawer.Screen name="proSettingSec" component={proSettingSec} />
+                <Drawer.Screen name="proSettingThird" component={proSettingThird} />
+                <Drawer.Screen name="proSettingEnd" component={proSettingEnd} />
+            </Drawer.Navigator>
+        </NavigationContainer>
+    );
 }
-
-// const Stack = createStackNavigator();
-//
-// function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//         <Stack.Screen name="Details" components={Details} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-=======
-import React, {Component} from 'react';
-
-class App extends Component {
-    render() {
-        return (
-            < div >
-            
-            < /div>
-    )
-        ;
-    }
-}
->>>>>>> 31f2cfde895b941cc732875488359f25215e86e4
 
 export default App;
