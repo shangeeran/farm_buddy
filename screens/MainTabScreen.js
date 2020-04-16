@@ -1,138 +1,110 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    StatusBar,
-} from 'react-native';
 
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import Icon from 'react-native-vector-icons/Ionicons';
-import {createAppContainer} from 'react-navigation';
-import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 
-class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>HomeScreen</Text>
-            </View>
-        )
-    }
-}
+import MainTabScreen from './screens/MainTabScreen';
+import Dashboard from './screens/Dashboard';
+import Weather from './screens/Weather';
+import proSetting from './screens/proSetting';
+import proSettingSec from './screens/proSettingSec';
+import proSettingThird from './screens/proSettingThird';
+import proSettingEnd from './screens/proSettingEnd';
 
-class ProfileScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>ProfileScreen</Text>
-            </View>
-        )
-    }
-}
+const DashboardStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
 
-class HistoryScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>HistoryScreen</Text>
-            </View>
-        )
-    }
-}
+const Tab = createMaterialBottomTabNavigator();
 
-class CartScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>CartScreen</Text>
-            </View>
-        )
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-});
-
-const TabNavigator = createMaterialBottomTabNavigator(
-    {
-        Home: {
-            screen: HomeScreen,
-            navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (
-                    <View>
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
-                    </View>
+const MainTabScreen = () => (
+    <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="#fff"
+    >
+        <Tab.Screen
+            name="Home"
+            component={HomeStackScreen}
+            options={{
+                tabBarLabel: 'Home',
+                tabBarColor: '#009387',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="ios-home" color={color} size={26} />
                 ),
-            }
-        },
-        Profile: {
-            screen: ProfileScreen,
-            navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (
-                    <View>
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-person'} />
-                    </View>
+            }}
+        />
+        <Tab.Screen
+            name="Dashboard"
+            component={DashboardStackScreen}
+            options={{
+                tabBarLabel: 'Dashboard',
+                tabBarColor: '#1f65ff',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="ios-notifications" color={color} size={26} />
                 ),
-                activeColor: '#ffffff',
-                inactiveColor: '#a3c2fa',
-                barStyle: { backgroundColor: '#2163f6' },
-            }
-        },
-        History: {
-            screen: HistoryScreen,
-            navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (
-                    <View>
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-images'} />
-                    </View>
+            }}
+        />
+        <Tab.Screen
+            name="Profile"
+            component={ProfileStackScreen}
+            options={{
+                tabBarLabel: 'Profile',
+                tabBarColor: '#694fad',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="ios-person" color={color} size={26} />
                 ),
-                activeColor: '#ffffff',
-                inactiveColor: '#92c5c2',
-                barStyle: { backgroundColor: '#2c6d6a' },
-            }
-        },
-        Cart: {
-            screen: CartScreen,
-            navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (
-                    <View>
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'} />
-                    </View>
-                ),
-                activeColor: '#ffffff',
-                inactiveColor: '#ebaabd',
-                barStyle: { backgroundColor: '#d13560' },
-            }
-        },
-    },
-    {
-        initialRouteName: 'Home',
-        activeColor: '#ffffff',
-        inactiveColor: '#bda1f7',
-        barStyle: { backgroundColor: '#6948f4' },
-    }
+            }}
+        />
+        {/*<Tab.Screen*/}
+        {/*  name="Explore"*/}
+        {/*  component={ExploreScreen}*/}
+        {/*  options={{*/}
+        {/*    tabBarLabel: 'Explore',*/}
+        {/*    tabBarColor: '#d02860',*/}
+        {/*    tabBarIcon: ({ color }) => (*/}
+        {/*      <Icon name="ios-aperture" color={color} size={26} />*/}
+        {/*    ),*/}
+        {/*  }}*/}
+        {/*/>*/}
+    </Tab.Navigator>
 );
 
-export default createAppContainer(TabNavigator);
+export default MainTabScreen;
+
+const DashboardStackScreen = ({navigation}) => (
+    <DashboardStack.Navigator screenOptions={{
+        headerStyle: {
+            backgroundColor: '#009387',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold'
+        }
+    }}>
+        <DashboardStack.Screen name="Dashboard" component={<Dashboard></Dashboard>} options={{
+            title:'Overview',
+            headerLeft: () => (
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
+            )
+        }} />
+    </DashboardStack.Navigator>
+);
+
+const ProfileStackScreen = ({navigation}) => (
+    <ProfileStack.Navigator screenOptions={{
+        headerStyle: {
+            backgroundColor: '#1f65ff',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold'
+        }
+    }}>
+        <ProfileStack.Screen name="Profile" component={proSetting} options={{
+            headerLeft: () => (
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#1f65ff" onPress={() => navigation.openDrawer()}></Icon.Button>
+            )
+        }} />
+    </ProfileStack.Navigator>
+);
