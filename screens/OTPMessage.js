@@ -7,6 +7,8 @@ import {
     StyleSheet,
     TouchableHighlight,
 } from 'react-native';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 const App: () => React$Node = () => {
     return (
@@ -17,6 +19,11 @@ const App: () => React$Node = () => {
             <Text style={styles.te2}>
                 We will send you a One Time Password on this mobile number
             </Text>
+            <PhoneInput
+                placeholder="Enter phone number"
+                value={this.onPressFlag}
+                onChange={this.selectCountry}
+            />
             <TouchableHighlight style={styles.b1}>
                 <Text style={styles.te3}>Proceed</Text>
             </TouchableHighlight>
