@@ -6,11 +6,13 @@ import {
     Text,
     StyleSheet,
     TouchableHighlight,
+    TextInput,
 } from 'react-native';
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+// import 'react-phone-number-input/style.css';
+// import PhoneInput from 'react-phone-number-input';
 
 const App: () => React$Node = () => {
+    // const [value, setValue] = useState()
     return (
         <View>
             <StatusBar hidden />
@@ -19,11 +21,8 @@ const App: () => React$Node = () => {
             <Text style={styles.te2}>
                 We will send you a One Time Password on this mobile number
             </Text>
-            <PhoneInput
-                placeholder="Enter phone number"
-                value={this.onPressFlag}
-                onChange={this.selectCountry}
-            />
+            {/*<PhoneInput placeholder="Enter phone number" value={value} onChange={setValue} />*/}
+            <TextInput placeholder="Enter Mobile Number" keyboardType='phone-pad' style={styles.TextInputStyle}/>
             <TouchableHighlight style={styles.b1}>
                 <Text style={styles.te3}>Proceed</Text>
             </TouchableHighlight>
@@ -49,24 +48,36 @@ const styles = StyleSheet.create({
 
     te2: {
         textAlign: 'center',
+        marginBottom: 10,
     },
 
     b1: {
         backgroundColor: '#4bd16f',
         color: '#000000',
-        marginTop: 100,
+        marginTop: 40,
         marginRight: 100,
         marginLeft: 100,
         textAlign: 'center',
         borderRadius: 50,
-        height: 40,
+        height: 50,
     },
 
     te3: {
+        marginTop: 10,
         margin: 10,
         textAlign: 'center',
-        fontSize: 15,
+        fontSize: 20,
         color: '#ffffff',
+    },
+
+    TextInputStyle: {
+        textAlign: 'center',
+        borderWidth: 0.5,
+        borderTopColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        marginLeft: 15,
+        marginRight: 15,
     },
 });
 
