@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     te2: {
         textAlign: 'center',
         marginBottom: 10,
+        color: '#808080',
     },
 
     b1: {
