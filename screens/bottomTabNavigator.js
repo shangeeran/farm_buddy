@@ -1,84 +1,138 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
-import Dashboard from './screens/Dashboard';
-import proSetting from './screens/proSetting';
-import proSettingEnd from './screens/proSettingEnd';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
-function Dashboard() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Feed!</Text>
-        </View>
-    );
+import React from 'react';
+import {
+    SafeAreaView,
+    StyleSheet,
+    ScrollView,
+    View,
+    Text,
+    StatusBar,
+} from 'react-native';
+
+import {
+    Header,
+    LearnMoreLinks,
+    Colors,
+    DebugInstructions,
+    ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {createAppContainer} from 'react-navigation';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+
+class HomeScreen extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>HomeScreen</Text>
+            </View>
+        )
+    }
 }
 
-function proSetting() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Profile!</Text>
-        </View>
-    );
+class ProfileScreen extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>ProfileScreen</Text>
+            </View>
+        )
+    }
 }
 
-function proSettingEnd() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Notifications!</Text>
-        </View>
-    );
+class HistoryScreen extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>HistoryScreen</Text>
+            </View>
+        )
+    }
 }
 
-const Tab = createBottomTabNavigator();
-
-function MyTabs() {
-    return (
-        <Tab.Navigator
-            initialRouteName="Dashboard"
-            tabBarOptions={{
-                activeTintColor: '#e91e63',
-            }}
-        >
-            <Tab.Screen
-                name="Dashboard"
-                component={Dashboard}
-                options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="home" color={color} size={size} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="proSetting"
-                component={proSetting}
-                options={{
-                    tabBarLabel: 'Updates',
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="bell" color={color} size={size} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="proSettingEnd"
-                component={proSettingEnd}
-                options={{
-                    tabBarLabel: 'Profile',
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="account" color={color} size={size} />
-                    ),
-                }}
-            />
-        </Tab.Navigator>
-    );
+class CartScreen extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>CartScreen</Text>
+            </View>
+        )
+    }
 }
 
-export default function App() {
-    return (
-        <NavigationContainer>
-            <MyTabs />
-        </NavigationContainer>
-    );
-}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
+
+const TabNavigator = createMaterialBottomTabNavigator(
+    {
+        Home: {
+            screen: HomeScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
+                    </View>
+                ),
+            }
+        },
+        Profile: {
+            screen: ProfileScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-person'} />
+                    </View>
+                ),
+                activeColor: '#ffffff',
+                inactiveColor: '#a3c2fa',
+                barStyle: { backgroundColor: '#2163f6' },
+            }
+        },
+        History: {
+            screen: HistoryScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-images'} />
+                    </View>
+                ),
+                activeColor: '#ffffff',
+                inactiveColor: '#92c5c2',
+                barStyle: { backgroundColor: '#2c6d6a' },
+            }
+        },
+        Cart: {
+            screen: CartScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'} />
+                    </View>
+                ),
+                activeColor: '#ffffff',
+                inactiveColor: '#ebaabd',
+                barStyle: { backgroundColor: '#d13560' },
+            }
+        },
+    },
+    {
+        initialRouteName: 'Home',
+        activeColor: '#ffffff',
+        inactiveColor: '#bda1f7',
+        barStyle: { backgroundColor: '#6948f4' },
+    }
+);
+
+export default createAppContainer(TabNavigator);
