@@ -24,7 +24,10 @@ const App: () => React$Node = () => {
             <Text style={styles.te2}>
                 Enter the OTP sent +94-xxx-xxxxxx
             </Text>
-
+            <OTPInputView pinCount={4} style={styles.OTPpin} codeInputFieldStyle={styles.fieldStyle}/>
+            <TouchableHighlight style={styles.b1}>
+                <Text style={styles.te3}>Proceed</Text>
+            </TouchableHighlight>
         </View>
     );
 };
@@ -51,6 +54,37 @@ const styles = StyleSheet.create({
         marginLeft: 20,
     },
 
+    b1: {
+        backgroundColor: '#4bd16f',
+        color: '#000000',
+        marginTop: 40,
+        marginRight: 100,
+        marginLeft: 100,
+        textAlign: 'center',
+        borderRadius: 50,
+        height: 50,
+    },
+
+    te3: {
+        marginTop: 10,
+        margin: 10,
+        textAlign: 'center',
+        fontSize: 20,
+        color: '#ffffff',
+    },
+
+    OTPpin: {
+        height: 40,
+        marginLeft: 30,
+        marginRight: 30,
+    },
+
+    fieldStyle: {
+        borderWidth: 0,
+        borderBottomWidth: 1,
+        width: 60,
+
+    },
 });
 
 export default App;
