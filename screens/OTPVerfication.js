@@ -13,7 +13,7 @@ import OTPInputView from "@twotalltotems/react-native-otp-input/dist";
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';
 
-const App: () => React$Node = () => {
+const Verified: () => React$Node = () => {
     // const [value, setValue] = useState()
     return (
         <View>
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default App;
+export default Verified;

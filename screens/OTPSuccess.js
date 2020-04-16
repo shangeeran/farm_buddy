@@ -11,20 +11,18 @@ import {
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';
 
-const Message: () => React$Node = () => {
+const Success: () => React$Node = () => {
     // const [value, setValue] = useState()
     return (
         <View>
             <StatusBar hidden />
-            <Image source={require('../assets/Message.png')} style={styles.img1} />
-            <Text style={styles.te1}>OTP Verification</Text>
+            <Image source={require('../assets/MessageSuccess.png')} style={styles.img1} />
+            <Text style={styles.te1}>Registered</Text>
             <Text style={styles.te2}>
-                We will send you a One Time Password on this mobile number
+                Successfully
             </Text>
-            {/*<PhoneInput placeholder="Enter phone number" value={value} onChange={setValue} />*/}
-            <TextInput placeholder="Enter Mobile Number" keyboardType='phone-pad' style={styles.TextInputStyle}/>
             <TouchableHighlight style={styles.b1}>
-                <Text style={styles.te3}>Proceed</Text>
+                <Text style={styles.te3}>Done</Text>
             </TouchableHighlight>
         </View>
     );
@@ -49,7 +47,8 @@ const styles = StyleSheet.create({
     te2: {
         textAlign: 'center',
         marginBottom: 10,
-        color: '#808080',
+        fontSize: 30,
+        fontWeight: "bold",
     },
 
     b1: {
@@ -70,16 +69,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#ffffff',
     },
-
-    TextInputStyle: {
-        textAlign: 'center',
-        borderWidth: 0.5,
-        borderTopColor: 'transparent',
-        borderLeftColor: 'transparent',
-        borderRightColor: 'transparent',
-        marginLeft: 15,
-        marginRight: 15,
-    },
 });
 
-export default Message;
+export default Success;
