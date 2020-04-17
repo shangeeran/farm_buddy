@@ -1,4 +1,4 @@
-mport React, {Component} from 'react';
+import React, {Component} from 'react';
 import DropdownMenu from 'react-native-dropdown-menu';
 import ReactChipsInput from 'react-native-chips';
 import {CheckBox} from 'native-base';
@@ -39,9 +39,22 @@ export default class SignUpView extends Component {
                 </View>
 
                 <View
+                    style={{top: 100, width: 380, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 20}}>
+                    <ReactChipsInput
+                        style={{height: 50, width: 100, justifyContent: 'center'}}
+                        initialChips={['Onion', 'Tomato', 'Pumpkin']}
+                        onChangeChips={chips => console.log(chips)}
+                        alertRequired={true}
+                        chipStyle={{borderColor: 'white', backgroundColor: '#59D8A3'}}
+                        inputStyle={{fontSize: 18, color: 'black', height: 100}}
+                        labelStyle={{width: 100, height: 50, fontSize: 10}}
+                    />
+                </View>
+
+                <View
                     style={{
                         flex: 1,
-                        top: 50,
+                        top: 200,
                         zIndex: 60,
                         width: 380,
                     }}>
@@ -67,16 +80,6 @@ export default class SignUpView extends Component {
                         </View>
                     </DropdownMenu>
                 </View>
-
-                <ReactChipsInput
-                    style={styles.inputChips}
-                    label="Enter Fruits"
-                    initialChips={['Apple', 'Orange']}
-                    onChangeChips={chips => console.log(chips)}
-                    alertRequired={true}
-                    chipStyle={{borderColor: 'blue', backgroundColor: 'grey'}}
-                    inputStyle={{fontSize: 22}}
-                />
 
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
@@ -105,12 +108,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    inputChips: {
-        bottom: 500,
-        width: 380,
-        height: 45,
-        flexDirection: 'row',
     },
     inputs: {
         height: 45,
@@ -158,5 +155,9 @@ const styles = StyleSheet.create({
     },
     checkBoxTxt: {
         marginLeft: 20,
+    },
+    inputChips: {
+        top: 500,
+        bottom: 300,
     },
 });
