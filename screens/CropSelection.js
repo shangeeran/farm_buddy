@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+mport React, {Component} from 'react';
 import DropdownMenu from 'react-native-dropdown-menu';
+import ReactChipsInput from 'react-native-chips';
 import {CheckBox} from 'native-base';
 import {
     StyleSheet,
@@ -67,6 +68,16 @@ export default class SignUpView extends Component {
                     </DropdownMenu>
                 </View>
 
+                <ReactChipsInput
+                    style={styles.inputChips}
+                    label="Enter Fruits"
+                    initialChips={['Apple', 'Orange']}
+                    onChangeChips={chips => console.log(chips)}
+                    alertRequired={true}
+                    chipStyle={{borderColor: 'blue', backgroundColor: 'grey'}}
+                    inputStyle={{fontSize: 22}}
+                />
+
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
                     onPress={() => this.onClickListener('sign_up')}>
@@ -96,7 +107,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     inputChips: {
-        bottom: 300,
+        bottom: 500,
         width: 380,
         height: 45,
         flexDirection: 'row',
