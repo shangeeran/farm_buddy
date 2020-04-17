@@ -42,15 +42,17 @@ export default class SignUpView extends Component {
                     style={{
                         top: 100,
                         width: 380,
+                        height: 80,
                         backgroundColor: 'white',
                         justifyContent: 'center',
                         alignItems: 'center',
                         borderRadius: 20,
                         padding: 10,
                     }}>
+                    <Text style={styles.textStyle}> Enter your Crops </Text>
                     <ReactChipsInput
                         style={{height: 50, width: 100, justifyContent: 'center'}}
-                        label="Enter your crop"
+                        label=" "
                         initialChips={['Onion', 'Tomato', 'Pumpkin']}
                         onChangeChips={chips => console.log(chips)}
                         alertRequired={true}
@@ -66,10 +68,11 @@ export default class SignUpView extends Component {
                         top: 200,
                         zIndex: 60,
                         width: 380,
+                        height: 500,
                     }}>
                     <View style={{height: 45, zIndex: 60}} />
                     <DropdownMenu
-                        style={{flex: 1}}
+                        style={{flex: 1, maxHeight: 300}}
                         bgColor={'white'}
                         tintColor={'#666666'}
                         activityTintColor={'green'}
@@ -87,6 +90,7 @@ export default class SignUpView extends Component {
                                 {this.state.text} is the best place to grow your crops
                             </Text>
                         </View>
+
                     </DropdownMenu>
                 </View>
 
