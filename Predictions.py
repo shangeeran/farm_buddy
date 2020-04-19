@@ -354,7 +354,7 @@ scaler.fit(dataSet)
 
 scaled_test = scaler.transform(dataSet)
 
-n_inputs = 60
+n_inputs = 20
 n_features = 1
 
 test_predictions = []
