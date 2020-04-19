@@ -24,6 +24,17 @@ class Predict:
     potatoes_model = ""
     potatoes_csv = ""
 
+    pumpkin_model = ""
+    pumpkin_csv = ""
+
+    red_onion_model = ""
+    red_onion_csv = ""
+
+    tomatoes_model = ""
+    tomatoes_csv = ""
+
+
+
 
     def __init__(self):
         self.beans_model = load_model("models/Beans.h5")
@@ -43,6 +54,15 @@ class Predict:
 
         self.potatoes_model = load_model("models/Potatoes.h5")
         self.potatoes_csv = pd.read_csv('csv/Potatoes.csv')
+
+        self.pumpkin_model = load_model("models/Pumpkin.h5")
+        self.pumpkin_csv = pd.read_csv("csv/Pumpkin.csv")
+
+        self.red_onion_model = load_model("models/RedOnion.h5")
+        self.red_onion_csv = pd.read_csv("csv/Red-Onions.csv")
+
+        self.tomatoes_model = load_model("models/Tomatoes.h5")
+        self.tomatoes_csv = pd.read_csv("csv/Tomatoes.csv")
 
     def beans(self):
         new_model = self.beans_model
@@ -281,6 +301,132 @@ class Predict:
 
         return round(true_prediction_average[0])
 
+
+    def pumpkin(self):
+        new_model = self.pumpkin_model
+        dataSet = self.pumpkin_csv
+
+        dataSet = dataSet.iloc[:, 1:2]
+
+        from sklearn.preprocessing import MinMaxScaler
+
+        scaler = MinMaxScaler()
+
+        # fitting the training set into scaler object
+        scaler.fit(dataSet)
+
+        scaled_test = scaler.transform(dataSet)
+
+        n_inputs = 60
+        n_features = 1
+
+        test_predictions = []
+
+        # taking the last 60 prices to predict the next output
+        first_eval_batch = scaled_test[-n_inputs:]
+
+        # reshaping this to 3d array
+        current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+
+        for i in range(20):
+            # predicting the output by passing the currebt_batch
+            current_prediction = new_model.predict(current_batch)[0]
+
+            # appending the prediction to the test_predictions array
+            test_predictions.append(current_prediction)
+
+            # updating the current_batch
+            current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+
+        true_predictions = scaler.inverse_transform(test_predictions)
+        true_prediction_average = sum(true_predictions) / 20
+
+        return round(true_prediction_average[0])
+
+
+    def redOnions(self):
+        new_model = self.red_onion_model
+        dataSet = self.red_onion_csv
+
+        dataSet = dataSet.iloc[:, 1:2]
+
+        from sklearn.preprocessing import MinMaxScaler
+
+        scaler = MinMaxScaler()
+
+        # fitting the training set into scaler object
+        scaler.fit(dataSet)
+
+        scaled_test = scaler.transform(dataSet)
+
+        n_inputs = 60
+        n_features = 1
+
+        test_predictions = []
+
+        # taking the last 60 prices to predict the next output
+        first_eval_batch = scaled_test[-n_inputs:]
+
+        # reshaping this to 3d array
+        current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+
+        for i in range(20):
+            # predicting the output by passing the currebt_batch
+            current_prediction = new_model.predict(current_batch)[0]
+
+            # appending the prediction to the test_predictions array
+            test_predictions.append(current_prediction)
+
+            # updating the current_batch
+            current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+
+        true_predictions = scaler.inverse_transform(test_predictions)
+        true_prediction_average = sum(true_predictions) / 20
+
+        return round(true_prediction_average[0])
+
+    # def tomatoes(self):
+    #     new_model = self.tomatoes_model
+    #     dataSet = self.tomatoes_csv
+    #
+    #     dataSet = dataSet.iloc[:, 1:2]
+    #
+    #     from sklearn.preprocessing import MinMaxScaler
+    #
+    #     scaler = MinMaxScaler()
+    #
+    #     # fitting the training set into scaler object
+    #     scaler.fit(dataSet)
+    #
+    #     scaled_test = scaler.transform(dataSet)
+    #
+    #     n_inputs = 60
+    #     n_features = 1
+    #
+    #     test_predictions = []
+    #
+    #     # taking the last 60 prices to predict the next output
+    #     first_eval_batch = scaled_test[-n_inputs:]
+    #
+    #     # reshaping this to 3d array
+    #     current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+    #
+    #     for i in range(20):
+    #         # predicting the output by passing the currebt_batch
+    #         current_prediction = new_model.predict(current_batch)[0]
+    #
+    #         # appending the prediction to the test_predictions array
+    #         test_predictions.append(current_prediction)
+    #
+    #         # updating the current_batch
+    #         current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+    #
+    #     true_predictions = scaler.inverse_transform(test_predictions)
+    #     true_prediction_average = sum(true_predictions) / 20
+    #
+    #     return round(true_prediction_average[0])
+
+
     def all(self):
         beans = self.beans()
         brinjal = self.brinjal()
@@ -288,6 +434,9 @@ class Predict:
         carrot = self.carrot()
         coconut = self.coconut()
         potatoes = self.potatoes()
+        pumpkin = self.pumpkin()
+        redOnions = self.redOnions()
+        # tomatoes = self.tomatoes()
 
 
 
@@ -327,6 +476,24 @@ class Predict:
                 "Month": time.strftime("%Y-%m"),
                 "Price": potatoes
             },
+            {
+                "Crop": "Pumpkin",
+                "Crop_code": "CR-007",
+                "Month": time.strftime("%Y-%m"),
+                "Price": pumpkin
+            },
+            {
+                "Crop": "Red Onion",
+                "Crop_code": "CR-008",
+                "Month": time.strftime("%Y-%m"),
+                "Price": redOnions
+            },
+            # {
+            #     "Crop": "Tomatoes",
+            #     "Crop_code": "CR-009",
+            #     "Month": time.strftime("%Y-%m"),
+            #     "Price": tomatoes
+            # },
 
         ]
         print(list_crop)

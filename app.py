@@ -1,7 +1,4 @@
 from flask import Flask, escape, request, jsonify
-import json
-from requests.packages import urllib3
-# urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 from predict.predict import Predict
 
