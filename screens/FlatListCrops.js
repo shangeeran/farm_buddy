@@ -85,8 +85,7 @@ export default class Example extends Component {
                         fontWeight: 'bold',
                         marginBottom: 30,
                     }}>
-                    {' '}
-                    List of Crops{' '}
+                    List of Crops
                 </Text>
                 <FlatList
                     style={{margin: 20}}
