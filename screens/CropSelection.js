@@ -22,7 +22,6 @@ export default class SignUpView extends Component {
     };
 
     render() {
-        var data = [['Colombo', 'Jaffna', 'Trincomalee', 'District 4']];
         return (
             <View style={styles.container}>
                 <View>
