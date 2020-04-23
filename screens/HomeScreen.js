@@ -5,16 +5,10 @@ import {
     View,
     TextInput,
     TouchableHighlight,
-    Alert, TouchableOpacity,
+    Alert, TouchableOpacity, Image,
 } from 'react-native';
 
 export default class HomeScreen extends Component {
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     district: '',
-    //   };
-    // }
 
     onClickListener = viewId => {
         Alert.alert('Alert', 'Button pressed ');
@@ -46,6 +40,9 @@ export default class HomeScreen extends Component {
                 >
                     <Text style={styles.signUpText}>Profile</Text>
                 </TouchableHighlight>
+                <View style={styles.image}>
+                    <Image source={require('../assets/delivery.png')} style={{width: 420, height: 220}} />
+                </View>
             </View>
         );
     }
@@ -60,7 +57,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         width: 380,
-        borderRadius: 5,
+        borderRadius: 20,
         left: 15,
         borderColor: 'black',
     },
@@ -72,7 +69,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         width: 380,
-        borderRadius: 5,
+        borderRadius: 20,
         left: 15,
         borderColor: 'black',
     },
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         width: 380,
-        borderRadius: 5,
+        borderRadius: 20,
         left: 15,
         borderColor: 'black',
     },
@@ -103,5 +100,11 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         bottom: -50,
         right: 0,
+    },
+    image: {
+        marginTop: 240,
+        alignItems: 'center',
+        // marginLeft: 55,
+        // marginRight: 2,
     },
 });
