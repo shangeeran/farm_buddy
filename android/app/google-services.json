@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "731460139111",
+    "firebase_url": "https://farmbud-b9c5e.firebaseio.com",
+    "project_id": "farmbud-b9c5e",
+    "storage_bucket": "farmbud-b9c5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731460139111:android:34a65726ea8aeaf515bcc2",
+        "android_client_info": {
+          "package_name": "com.farmbud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731460139111-md845gbrcve5gom1n3d43eb70182ol4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTgoKu_LOJ4Otltmwa126phhyfAPUe6zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731460139111-md845gbrcve5gom1n3d43eb70182ol4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
