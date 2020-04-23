@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TouchableOpacity} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
 
 export default class proSettingEnd extends React.Component {
@@ -8,15 +7,19 @@ export default class proSettingEnd extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.proImg}>
-                    <Image source={require('./assets/successful.jpg')} style={{width: 300, height: 300}} />
+                    <Image source={require('../assets/successful.jpg')} style={{width: 300, height: 300}} />
                 </View>
                 <View>
                     <Text style={styles.text}>Successfully Changed!</Text>
                 </View>
 
-                <View style={styles.goBack}>
-                    <Button onPress={() => goBack()} color="#05C167" title="Go Back" />
-                </View>
+                <TouchableOpacity style = {styles. goBack}
+                                  onPress={() => this.props.navigation.navigate('HomeScreen', { screenName: "HomeScreen" })}
+                >
+                    <Text style = {styles.textNext}>
+                        Go to Menu
+                    </Text>
+                </TouchableOpacity>
 
             </View>
         );
@@ -36,8 +39,8 @@ const styles = StyleSheet.create({
     text: {
         marginTop:10,
         fontFamily: 'serif',
-        fontSize: 30,
-        // fontWeight: 'bold',
+        fontSize: 40,
+        fontWeight: 'bold',
         textAlign: 'center'
     },
     goBack: {

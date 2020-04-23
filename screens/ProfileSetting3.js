@@ -14,7 +14,7 @@ export default class proSettingThird extends React.Component {
             >
                 <View style={styles.container}>
                     <View style={styles.proImg}>
-                        <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
+                        <Image source={require('../assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
                     <View style={styles.text}>
@@ -53,7 +53,7 @@ export default class proSettingThird extends React.Component {
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
-                                      onPress={() => this.props.navigation.navigate('proSettingEnd', { screenName: "proSettingEnd" })}
+                                      onPress={() => this.props.navigation.navigate('ProfileSetting4', { screenName: "ProfileSetting4" })}
                     >
                         <Text style = {styles.textNext}>
                             Next
