@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
         // overflow: 'hidden',
     },
     proImg: {
+        marginTop:30,
         padding: '5%'
     },
     textVisible: {
@@ -92,9 +93,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 30,
         paddingVertical: 10,
-        paddingHorizontal: 30,
+        paddingHorizontal: 40,
         borderColor: '#05C167',
         backgroundColor: '#05C167',
+        marginTop: 20,
+        marginBottom:70,
     },
     textNext: {
         fontFamily: 'serif',

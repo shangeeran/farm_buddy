@@ -111,9 +111,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 30,
         paddingVertical: 10,
-        paddingHorizontal: 30,
+        paddingHorizontal: 40,
         borderColor: '#05C167',
         backgroundColor: '#05C167',
+        marginTop: 70,
     },
     textNext: {
         fontFamily: 'serif',

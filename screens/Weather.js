@@ -17,7 +17,7 @@ export default class Weather extends Component {
 
           <View style={styles.textContainer}>
             <Text style={styles.bottomText3}>
-              Clear skies. Sunny to partly {"\n"}cloudy in the afternoon. {"\n"} Low 47 F
+              Clear skies. Sunny to partly cloudy in the afternoon. {"\n"} Low 47 F
             </Text>
           </View>
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     // textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontFamily: 'serif',
-    fontSize: 20,
+    fontSize: 18,
     marginTop: '80%',
     marginLeft: '15%',
     // width: 200,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     // textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontFamily: 'serif',
-    fontSize: 30,
+    fontSize: 25,
     marginTop: '2%',
     marginLeft: '15%',
     // width: 200,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   bottomText3: {
     textAlign: 'left', // <-- the magic
     // fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: 'serif',
     marginTop: '70%',
     marginLeft: '40%',

@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import ReactChipsInput from 'react-native-chips';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    TouchableHighlight,
-    Alert,
-} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableHighlight,Alert, TouchableOpacity} from 'react-native';
 
 export default class CropsSelection extends Component {
     constructor(props) {
@@ -69,7 +62,8 @@ export default class CropsSelection extends Component {
 
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
-                    onPress={() => this.onClickListener('sign_up')}>
+                    onPress={() => this.props.navigation.navigate('HomeScreen', { screenName: "HomeScreen" })}
+                >
                     <Text style={styles.signUpText}>Save</Text>
                 </TouchableHighlight>
             </View>
@@ -122,7 +116,7 @@ const styles = StyleSheet.create({
     },
     signupButton: {
         backgroundColor: '#59D8A3',
-        top: 180,
+        top: 120,
     },
     signUpText: {
         color: 'white',

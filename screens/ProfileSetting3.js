@@ -53,7 +53,7 @@ export default class proSettingThird extends React.Component {
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
-                                      onPress={() => this.props.navigation.navigate('ProfileSetting4', { screenName: "ProfileSetting4" })}
+                                       onPress={() => this.props.navigation.navigate('ProfileSetting4', { screenName: "ProfileSetting4" })}
                     >
                         <Text style = {styles.textNext}>
                             Next
@@ -77,21 +77,22 @@ const styles = StyleSheet.create({
     },
     buttonContainer : {
         bottom:0,
-        marginTop:120,
+        marginTop:150,
         marginBottom: 40,
         borderWidth: 1,
         borderRadius: 30,
         paddingVertical: 10,
-        paddingHorizontal: 30,
+        paddingHorizontal: 40,
         borderColor: '#05C167',
         backgroundColor: '#05C167',
+
     },
     lanButton: {
         // bottom:0,
         borderWidth: 1,
         borderRadius: 30,
         paddingVertical: 5,
-        paddingHorizontal: 25,
+        paddingHorizontal: 20,
         borderColor: '#05C167',
         backgroundColor: '#05C167',
         marginLeft: 250,
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
     },
     textNext: {
         fontFamily: 'serif',
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: 14,
+        // fontWeight: 'bold',
         color: '#fff',
     },
     text: {

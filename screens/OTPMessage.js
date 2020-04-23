@@ -1,34 +1,33 @@
-import React from 'react';
-import {
-    Image,
-    View,
-    StatusBar,
-    Text,
-    StyleSheet,
-    TouchableHighlight,
-    TextInput,
-} from 'react-native';
-// import 'react-phone-number-input/style.css';
-// import PhoneInput from 'react-phone-number-input';
+import React, {Component} from 'react';
+import {Image, View, StatusBar, Text, StyleSheet, TouchableHighlight, TextInput} from 'react-native';
 
-const Message: () => React$Node = () => {
-    // const [value, setValue] = useState()
-    return (
-        <View>
-            <StatusBar hidden />
-            <Image source={require('../assets/Message.png')} style={styles.img1} />
-            <Text style={styles.te1}>OTP Verification</Text>
-            <Text style={styles.te2}>
-                We will send you a One Time Password on this mobile number
-            </Text>
-            {/*<PhoneInput placeholder="Enter phone number" value={value} onChange={setValue} />*/}
-            <TextInput placeholder="Enter Mobile Number" keyboardType='phone-pad' style={styles.TextInputStyle}/>
-            <TouchableHighlight style={styles.b1}>
-                <Text style={styles.te3}>Proceed</Text>
-            </TouchableHighlight>
-        </View>
-    );
-};
+class Message extends Component {
+    render() {
+        return (
+            <View>
+                <StatusBar hidden />
+                <Image source={require('../assets/Message.png')} style={styles.img1} />
+                <Text style={styles.te1}>OTP Verification</Text>
+                <Text style={styles.te2}>
+                    We will send you a One Time Password on this mobile number
+                </Text>
+                {/*<PhoneInput placeholder="Enter phone number" value={value} onChange={setValue} />*/}
+                <TextInput placeholder="Enter Mobile Number" keyboardType='phone-pad' style={styles.TextInputStyle}/>
+                <TouchableHighlight style={styles.b1}
+                                    onPress={() => this.props.navigation.navigate('Verified', { screenName: "Verified" })}
+                >
+                    <Text style={styles.te3}>Proceed</Text>
+                </TouchableHighlight>
+            </View>
+        );
+    }
+}
+//
+// export default Message;
+// const Message: () => React$Node = () => {
+//     // const [value, setValue] = useState()
+//
+// };
 
 const styles = StyleSheet.create({
     te1: {

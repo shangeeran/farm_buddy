@@ -1,36 +1,34 @@
-import React from 'react';
-import {
-    Image,
-    View,
-    StatusBar,
-    Text,
-    StyleSheet,
-    TouchableHighlight,
-    TextInput,
-
-} from 'react-native';
+import React, {Component} from 'react';
+import {Image, View, StatusBar, Text, StyleSheet, TouchableHighlight, TextInput} from 'react-native';
 import OTPInputView from "@twotalltotems/react-native-otp-input/dist";
-// import 'react-phone-number-input/style.css';
-// import PhoneInput from 'react-phone-number-input';
 
-const Verified: () => React$Node = () => {
-    // const [value, setValue] = useState()
-    return (
-        <View>
-            <StatusBar hidden />
-            {/*<Icon name="left" size={30} color='#000000' />*/}
-            <Image source={require('../assets/VErified.png')} style={styles.img1} />
-            <Text style={styles.te1}>OTP Verification</Text>
-            <Text style={styles.te2}>
-                Enter the OTP sent +94-xxx-xxxxxx
-            </Text>
-            <OTPInputView pinCount={4} style={styles.OTPpin} codeInputFieldStyle={styles.fieldStyle}/>
-            <TouchableHighlight style={styles.b1}>
-                <Text style={styles.te3}>Proceed</Text>
-            </TouchableHighlight>
-        </View>
-    );
-};
+class Verified extends Component {
+    render() {
+        return (
+            <View>
+                <StatusBar hidden />
+                {/*<Icon name="left" size={30} color='#000000' />*/}
+                <Image source={require('../assets/VErified.png')} style={styles.img1} />
+                <Text style={styles.te1}>OTP Verification</Text>
+                <Text style={styles.te2}>
+                    Enter the OTP sent +94-xxx-xxxxxx
+                </Text>
+                <OTPInputView pinCount={4} style={styles.OTPpin} codeInputFieldStyle={styles.fieldStyle}/>
+                <TouchableHighlight style={styles.b1}
+                                    onPress={() => this.props.navigation.navigate('Success', { screenName: "Success" })}
+                >
+                    <Text style={styles.te3}>Proceed</Text>
+                </TouchableHighlight>
+            </View>
+        );
+    }
+}
+
+// export default Verified;
+// const Verified: () => React$Node = () => {
+//     // const [value, setValue] = useState()
+//
+// };
 
 const styles = StyleSheet.create({
     te1: {
