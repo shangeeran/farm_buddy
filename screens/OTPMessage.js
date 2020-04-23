@@ -22,15 +22,10 @@ class Message extends Component {
         );
     }
 }
-//
-// export default Message;
-// const Message: () => React$Node = () => {
-//     // const [value, setValue] = useState()
-//
-// };
 
 const styles = StyleSheet.create({
     te1: {
+        marginTop:10,
         textAlign: 'center',
         fontSize: 20,
         fontFamily: 'product-sans',
@@ -54,7 +49,7 @@ const styles = StyleSheet.create({
     b1: {
         backgroundColor: '#4bd16f',
         color: '#000000',
-        marginTop: 40,
+        marginTop: 70,
         marginRight: 100,
         marginLeft: 100,
         textAlign: 'center',

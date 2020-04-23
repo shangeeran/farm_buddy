@@ -36,9 +36,6 @@ export class OnBoard extends Component {
                 ]}
 
             />
-
-            // <View></View>
-
         );
     }
 }
@@ -53,12 +50,12 @@ const styles = StyleSheet.create({
     },
 
     img2: {
-        height: 350,
+        height: 380,
         width: 400,
     },
 
     img3: {
-        height: 350,
+        height: 380,
         width: 450,
         // marginRight: 100,
         // marginLeft: 50,

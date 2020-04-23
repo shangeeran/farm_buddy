@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'product-sans',
         marginBottom: 5,
+        marginTop: 15,
     },
 
     img1: {
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     b1: {
         backgroundColor: '#4bd16f',
         color: '#000000',
-        marginTop: 40,
+        marginTop: 70,
         marginRight: 100,
         marginLeft: 100,
         textAlign: 'center',
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     },
 
     OTPpin: {
-        height: 40,
+        height: 50,
         marginLeft: 30,
         marginRight: 30,
     },
