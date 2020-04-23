@@ -73,7 +73,8 @@ export default class SignUpView extends Component {
 
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
-                    onPress={() => this.onClickListener('sign_up')}>
+                    onPress={() => this.props.navigation.navigate('HomeScreen', { screenName: "HomeScreen" })}
+                >
                     <Text style={styles.signUpText}>Sign up</Text>
                 </TouchableHighlight>
             </View>
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonContainer: {
-        top: 200,
+        top: 50,
         height: 45,
         flexDirection: 'row',
         justifyContent: 'center',

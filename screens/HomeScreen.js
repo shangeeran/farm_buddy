@@ -5,10 +5,10 @@ import {
     View,
     TextInput,
     TouchableHighlight,
-    Alert,
+    Alert, TouchableOpacity,
 } from 'react-native';
 
-export default class SignUpView extends Component {
+export default class HomeScreen extends Component {
     // constructor(props) {
     //   super(props);
     //   this.state = {
@@ -28,19 +28,22 @@ export default class SignUpView extends Component {
                 </Text>
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
-                    onPress={() => this.onClickListener()}>
+                    onPress={() => this.props.navigation.navigate('FlatListCrops', { screenName: "FlatListCrops" })}
+                >
                     <Text style={styles.signUpText}>List of Crops</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
                     style={[styles.secondButton, styles.signupButton]}
-                    onPress={() => this.onClickListener()}>
+                    onPress={() => this.props.navigation.navigate('Dashboard', { screenName: "Dashboard" })}
+                >
                     <Text style={styles.signUpText}>Dashboard</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
                     style={[styles.thirdButton, styles.signupButton]}
-                    onPress={() => this.onClickListener()}>
+                    onPress={() => this.props.navigation.navigate('ProfileSetting1', { screenName: "ProfileSetting1" })}
+                >
                     <Text style={styles.signUpText}>Profile</Text>
                 </TouchableHighlight>
             </View>

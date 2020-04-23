@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 export default class proSetting extends React.Component {
     // state = {
@@ -23,7 +23,7 @@ export default class proSetting extends React.Component {
             >
                 <View style={styles.container}>
                     <View style={styles.proImg}>
-                        <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
+                        <Image source={require('../assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
                     <View style={styles.textVisible}>
@@ -69,7 +69,7 @@ export default class proSetting extends React.Component {
 
 
                     <TouchableOpacity style = {styles. buttonContainer}
-                                      onPress={() => this.props.navigation.navigate('proSettingSec', { screenName: "proSettingSec" })}
+                                      onPress={() => this.props.navigation.navigate('ProfileSetting2', { screenName: "ProfileSetting2" })}
                     >
                         <Text style = {styles.textNext}>
                             Next

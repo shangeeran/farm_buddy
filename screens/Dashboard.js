@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 
+
 export default class Dashboard extends Component {
     render() {
         return (
             <View style={styles.container}>
 
                 <View style={styles.image1}>
-                    <Image source={require('./assets/snow.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('../assets/snow.png')} style={{width: 200, height: 180}} />
                 </View>
 
                 <TouchableOpacity style = {styles. buttonContainer1}
@@ -18,7 +19,7 @@ export default class Dashboard extends Component {
                     </Text>
                 </TouchableOpacity>
                 <View style={styles.textAlign}>
-                    <Text style={styles.subText}>Prices are {"\n"}so
+                    <Text style={styles.subText}>Crops are {"\n"}so
                         <Text>{' '}</Text>
                         <Text style={{fontWeight: 'bold', fontSize: 36,}}>
                             good !!
@@ -29,14 +30,14 @@ export default class Dashboard extends Component {
                     </Text>
                 </View>
                 <View style={styles.image2}>
-                    <Image source={require('./assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
+                    <Image source={require('../assets/boo-dribbble_2x.png')} style={{width: 200, height: 180}} />
                 </View>
 
                 <TouchableOpacity style = {styles. buttonContainer2}
-                                  onPress={() => this.props.navigation.navigate('Weather', { screenName: "Weather" })}
+                                  onPress={() => this.props.navigation.navigate('FlatListCrops', { screenName: "FlatListCrops" })}
                 >
                     <Text style = {styles.text2}>
-                        Explore
+                        List of crops
                     </Text>
                 </TouchableOpacity>
             </View>
