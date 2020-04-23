@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactChipsInput from 'react-native-chips';
 import {
     StyleSheet,
     Text,
@@ -71,16 +70,6 @@ export default class SignUpView extends Component {
                         onChangeText={district => this.setState({district})}
                     />
                 </View>
-
-                <ReactChipsInput
-                    style={styles.inputContainer}
-                    label="Enter Fruits"
-                    initialChips={['Apple', 'Orange']}
-                    onChangeChips={chips => console.log(chips)}
-                    alertRequired={true}
-                    chipStyle={{borderColor: 'blue', backgroundColor: 'grey'}}
-                    inputStyle={{fontSize: 22}}
-                />
 
                 <TouchableHighlight
                     style={[styles.buttonContainer, styles.signupButton]}
