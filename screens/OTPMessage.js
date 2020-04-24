@@ -8,51 +8,85 @@ import {
     TouchableHighlight,
     TextInput,
 } from 'react-native';
-import auth from '@react-native-firebase/auth';
-
-// // If null, no SMS has been sent
-// const [confirm, setConfirm] = useState(null);
-//
-// const [code, setCode] = useState('');
-//
-// // Handle the button press
-// async function signInWithPhoneNumber(phoneNumber) {
-//   const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
-//   setConfirm(confirmation);
-// }
-//
-// async function confirmCode() {
-//   try {
-//     await confirm.confirm(code);
-//   } catch (error) {
-//     console.log('Invalid code.');
-//   }
-// }
-//
-// if (!confirm) {
-//   return (
-//       <Button
-//           title="Phone Number Sign In"
-//           onPress={() => signInWithPhoneNumber('+1 650-555-3434')}
-//       />
-//   );
-// }
-//
-// return (
-//     <>
-//       <TextInput value={code} onChangeText={text => setCode(text)} />
-//       <Button title="Confirm Code" onPress={() => confirmCode()} />
-//     </>
-// );
-// }
+import firebase from 'react-native-firebase';
 
 export class Message extends Component {
     constructor() {
         super();
+        this.unsubscribe = null;
+        this.state = {
+            user: null,
+            message: '',
+            codeInput: '',
+            phoneNumber: '+94',
+            confirmResult: null,
+        };
     }
-    render() {
+
+    componentDidMount() {
+        this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({user: user.toJSON()});
+            } else {
+                // User has been signed out, reset the state
+                this.setState({
+                    user: null,
+                    message: '',
+                    codeInput: '',
+                    phoneNumber: '+94',
+                    confirmResult: null,
+                });
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
+    }
+
+    signIn = () => {
+        const {phoneNumber} = this.state;
+        this.setState({message: 'Sending code ...'});
+
+        firebase
+            .auth()
+            .signInWithPhoneNumber(phoneNumber)
+            .then((confirmResult) =>
+                this.setState({confirmResult, message: 'Code has been sent!'}),
+            )
+            .catch((error) =>
+                this.setState({
+                    message: `Sign In With Phone Number Error: ${error.message}`,
+                }),
+            );
+    };
+
+    confirmCode = () => {
+        const {codeInput, confirmResult} = this.state;
+
+        if (confirmResult && codeInput.length) {
+            confirmResult
+                .confirm(codeInput)
+                .then((user) => {
+                    this.setState({message: 'Code Confirmed!'});
+                })
+                .catch((error) =>
+                    this.setState({message: `Code Confirm Error: ${error.message}`}),
+                );
+        }
+    };
+
+    signOut = () => {
+        firebase.auth().signOut();
+    };
+
+    renderPhoneNumberInput() {
+        const {phoneNumber} = this.state;
+
         return (
-            <View>
+            <View style={{padding: 25}}>
                 <StatusBar hidden />
                 <Image source={require('../assets/Message.png')} style={styles.img1} />
                 <Text style={styles.te1}>OTP Verification</Text>
@@ -60,9 +94,12 @@ export class Message extends Component {
                     We will send you a One Time Password on this mobile number
                 </Text>
                 <TextInput
+                    autoFocus
+                    onChangeText={(value) => this.setState({phoneNumber: value})}
                     placeholder="Enter Mobile Number"
                     keyboardType="phone-pad"
                     style={styles.TextInputStyle}
+                    value={phoneNumber}
                 />
                 <TouchableHighlight
                     style={styles.b1}
@@ -74,6 +111,19 @@ export class Message extends Component {
                     <Text style={styles.te3}>Proceed</Text>
                 </TouchableHighlight>
             </View>
+        );
+    }
+    renderMessage() {
+        const {message} = this.state;
+
+        if (!message.length) {
+            return null;
+        }
+
+        return (
+            <Text style={{padding: 5, backgroundColor: '#000', color: '#fff'}}>
+                {message}
+            </Text>
         );
     }
 }

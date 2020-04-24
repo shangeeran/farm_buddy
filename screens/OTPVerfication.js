@@ -1,34 +1,55 @@
 import React, {Component} from 'react';
-import {Image, View, StatusBar, Text, StyleSheet, TouchableHighlight, TextInput} from 'react-native';
-import OTPInputView from "@twotalltotems/react-native-otp-input/dist";
+import {
+    Image,
+    View,
+    StatusBar,
+    Text,
+    StyleSheet,
+    TouchableHighlight,
+} from 'react-native';
+import OTPInputView from '@twotalltotems/react-native-otp-input/dist';
+import firebase from 'react-native-firebase';
 
-class Verified extends Component {
-    render() {
+export class Verified extends Component {
+    constructor() {
+        super();
+        this.unsubscribe = null;
+        this.state = {
+            user: null,
+            message: '',
+            codeInput: '',
+            phoneNumber: '+94',
+            confirmResult: null,
+        };
+    }
+    renderVerificationCodeInput() {
+        const {codeInput} = this.state;
         return (
             <View>
                 <StatusBar hidden />
-                {/*<Icon name="left" size={30} color='#000000' />*/}
                 <Image source={require('../assets/VErified.png')} style={styles.img1} />
                 <Text style={styles.te1}>OTP Verification</Text>
-                <Text style={styles.te2}>
-                    Enter the OTP sent +94-xxx-xxxxxx
-                </Text>
-                <OTPInputView pinCount={4} style={styles.OTPpin} codeInputFieldStyle={styles.fieldStyle}/>
-                <TouchableHighlight style={styles.b1}
-                                    onPress={() => this.props.navigation.navigate('Success', { screenName: "Success" })}
-                >
-                    <Text style={styles.te3}>Proceed</Text>
+                <Text style={styles.te2}>Enter the OTP sent +94-xxx-xxxxxx</Text>
+                <OTPInputView
+                    pinCount={4}
+                    autoFocus
+                    onChangeText={(value) => this.setState({codeInput: value})}
+                    placeholder={'Code ... '}
+                    value={codeInput}
+                    style={styles.OTPpin}
+                    codeInputFieldStyle={styles.fieldStyle}
+                />
+                <TouchableHighlight
+                    style={styles.b1}
+                    onPress={this.props.navigation.navigate('Success', {
+                        screenName: 'Success',
+                    })}>
+                    <Text style={styles.te3}>Confirm</Text>
                 </TouchableHighlight>
             </View>
         );
     }
 }
-
-// export default Verified;
-// const Verified: () => React$Node = () => {
-//     // const [value, setValue] = useState()
-//
-// };
 
 const styles = StyleSheet.create({
     te1: {
@@ -82,8 +103,5 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderBottomWidth: 1,
         width: 60,
-
     },
 });
-
-export default Verified;
