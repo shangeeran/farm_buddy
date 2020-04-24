@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, Button, Image} from 'react-native';
+import { Text, Card, Divider } from 'react-native-elements';
 
 export default class Weather extends Component {
   render() {
     return (
+        // <View></View>
         <View style={styles.container}>
+          <Card containerStyle={styles.card}>
+          </Card>
           <View style={styles.topContainer} />
           <View style={styles.bottomContainer} />
           <View style={styles.textContainer}>
@@ -14,16 +18,26 @@ export default class Weather extends Component {
             <Text style={styles.bottomText1}>Woah!</Text>
             <Text style={styles.bottomText2}>Perfect Day</Text>
           </View>
-
+          <View style={styles.image1}>
+            <Image source={require('./assets/cloud.png')} style={{width: 120, height: 120}} />
+          </View>
           <View style={styles.textContainer}>
             <Text style={styles.bottomText3}>
-              Clear skies. Sunny to partly cloudy in the afternoon. {"\n"} Low 47 F
+              Clear skies. Sunny to partly {"\n"}cloudy in the afternoon. {"\n"} Low 47 F
             </Text>
           </View>
-
-
-
-
+          <View style={styles.image2}>
+            <Image source={require('./assets/temperature.png')} style={{width: 40, height: 40}} />
+          </View>
+          <View style={styles.image3}>
+            <Image source={require('./assets/temperature.png')} style={{width: 40, height: 40}} />
+          </View>
+          <View style={styles.image4}>
+            <Image source={require('./assets/wind.png')} style={{width: 30, height: 30}} />
+          </View>
+          <View style={styles.image5}>
+            <Image source={require('./assets/humidity.png')} style={{width: 30, height: 30}} />
+          </View>
           <View style={styles.textContainer}>
             <Text style={styles.bottomText4}>Temperature</Text>
             <Text style={styles.bottomText5}>precipitation</Text>
@@ -69,7 +83,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontSize: 20,
     fontFamily: 'serif',
-    marginTop: '30%',
+    marginTop: '40%',
     marginLeft: '55%',
     // width: 200,
     color: 'white',
@@ -78,7 +92,7 @@ const styles = StyleSheet.create({
     // textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontFamily: 'serif',
-    fontSize: 18,
+    fontSize: 20,
     marginTop: '80%',
     marginLeft: '15%',
     // width: 200,
@@ -88,7 +102,7 @@ const styles = StyleSheet.create({
     // textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontFamily: 'serif',
-    fontSize: 25,
+    fontSize: 30,
     marginTop: '2%',
     marginLeft: '15%',
     // width: 200,
@@ -97,7 +111,7 @@ const styles = StyleSheet.create({
   bottomText3: {
     textAlign: 'left', // <-- the magic
     // fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: 'serif',
     marginTop: '70%',
     marginLeft: '40%',
@@ -109,7 +123,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontFamily: 'serif',
     fontSize: 20,
-    marginTop: '105%',
+    marginTop: '110%',
     marginLeft: '-40%',
     // width: 200,
     color: 'black',
@@ -159,22 +173,27 @@ const styles = StyleSheet.create({
   },
   image2: {
     position: 'absolute',
-    marginTop: '100%',
-    marginLeft: '10%',
+    marginTop: 450,
+    marginLeft: 50,
   },
   image3: {
     position: 'absolute',
-    marginTop: '100%',
-    marginLeft: '55%',
+    marginTop: 450,
+    marginLeft: 230,
   },
   image4: {
     position: 'absolute',
-    marginTop: '140%',
-    marginLeft: '10%',
+    marginTop: 620,
+    marginLeft: 50,
   },
   image5: {
     position: 'absolute',
-    marginTop: '140%',
-    marginLeft: '55%',
+    marginTop: 620,
+    marginLeft: 230,
   },
+  card:{
+    backgroundColor:'rgba(56, 172, 236, 1)',
+    borderWidth:0,
+    borderRadius:20
+  }
 });
