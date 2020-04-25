@@ -48,24 +48,24 @@ export default class Weather extends Component {
             <Text style={styles.bottomText3}>
               {this.state.data.weather.map(item=>(
                   <Text>{item.description}</Text>
-              ))}.   {"\n"}{this.state.data.main.temp_min}
+              ))}.   {"\n"}Weather {this.state.data.main.temp_min} °C
             </Text>
           </View>
           <View style={styles.image2}>
-            <Image source={require('../assets/temperature.png')} style={{width: 40, height: 40}} />
-            <Text style={{marginLeft:40, marginTop:-25}}>{this.state.data.main.temp} C</Text>
+            <Image source={require('../assets/temperature.png')} style={{width: 50, height: 50}} />
+            <Text style={{marginLeft:60, marginTop:-35}}>{this.state.data.main.temp} °C</Text>
           </View>
           <View style={styles.image3}>
-            <Image source={require('../assets/pred.png')} style={{width: 40, height: 40}} />
-            <Text style={{marginLeft:40, marginTop:-25}}>{this.state.data.main.temp} %</Text>
+            <Image source={require('../assets/pred.png')} style={{width: 50, height: 50}} />
+            <Text style={{marginLeft:60, marginTop:-35}}>{this.state.data.main.temp * 2} %</Text>
           </View>
           <View style={styles.image4}>
-            <Image source={require('../assets/wind.png')} style={{width: 30, height: 30}} />
-            <Text style={{marginLeft:40, marginTop:-25}}>{this.state.data.wind.speed} %</Text>
+            <Image source={require('../assets/wind.png')} style={{width: 50, height: 50}} />
+            <Text style={{marginLeft:60, marginTop:-35}}>{this.state.data.wind.speed} %</Text>
           </View>
           <View style={styles.image5}>
-            <Image source={require('../assets/humidity.png')} style={{width: 30, height: 30}} />
-            <Text style={{marginLeft:40, marginTop:-25}}>{this.state.data.main.humidity} Kmph</Text>
+            <Image source={require('../assets/humidity.png')} style={{width: 50, height: 50}} />
+            <Text style={{marginLeft:60, marginTop:-35}}>{this.state.data.main.humidity} Kmph</Text>
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.bottomText4}>Temperature</Text>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontSize: 20,
     fontFamily: 'serif',
-    marginTop: 40,
+    marginTop: 35,
     marginLeft: 120,
     // width: 200,
     color: 'white',
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'serif',
     fontSize: 20,
-    marginTop: '80%',
+    marginTop: '90%',
     marginLeft: '15%',
     // width: 200,
     color: 'black',
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     // textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontFamily: 'serif',
-    fontSize: 20,
+    fontSize: 18,
     marginTop: '2%',
     marginLeft: '15%',
     // width: 200,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontSize: 20,
     fontFamily: 'serif',
-    marginTop: '75%',
+    marginTop: '70%',
     marginLeft: '45%',
     // width: 200,
     color: 'black',
