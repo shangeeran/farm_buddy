@@ -78,11 +78,7 @@ export class Message extends Component {
         }
     };
 
-    signOut = () => {
-        firebase.auth().signOut();
-    };
-
-    renderPhoneNumberInput() {
+    render() {
         const {phoneNumber} = this.state;
 
         return (
@@ -103,10 +99,12 @@ export class Message extends Component {
                 />
                 <TouchableHighlight
                     style={styles.b1}
-                    onPress={() =>
-                        this.props.navigation.navigate('Verified', {
-                            screenName: 'Verified',
-                        })
+                    onPress={
+                        (() =>
+                            this.props.navigation.navigate('Verified', {
+                                screenName: 'Verified',
+                            }),
+                            this.signIn)
                     }>
                     <Text style={styles.te3}>Proceed</Text>
                 </TouchableHighlight>
