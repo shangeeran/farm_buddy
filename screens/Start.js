@@ -13,7 +13,7 @@ export class Start extends Component {
     render() {
         return (
             <View>
-                <StatusBar hidden />
+                {/*<StatusBar hidden />*/}
                 <ImageBackground
                     source={require('../assets/front.png')}
                     style={{width: '100%', height: '100%'}}>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
 
     b1: {
-        marginTop: 350,
+        marginTop: 320,
         marginLeft: 250,
         // marginRight: 110,
         backgroundColor: '#05C167',

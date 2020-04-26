@@ -1,108 +1,98 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import ReactChipsInput from 'react-native-chips';
 import {
     StyleSheet,
     Text,
     View,
     TextInput,
-    TouchableOpacity,
-    Keyboard,
+    Button,
+    TouchableHighlight,
+    Image,
+    Alert,
 } from 'react-native';
 
-export default class App extends Component<{}> {
+export default class SignUpView extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            F_Name: '',
-            L_Name: '',
-            NIC: '',
+        state = {
+            firstName: '',
+            lastName: '',
+            nicNumber: '',
+            district: '',
         };
     }
-    validation = () => {
-        const {F_Name, L_Name, NIC} = this.state;
-        if (F_Name == '') {
-            //alert('please fill the first name');
-            this.setState({Error: 'please fill the first name'});
-        } else if (L_Name == '') {
-            //  alert('please fill the last name');
-            this.setState({Error: 'please fill the last name'});
-        } else if (NIC == '') {
-            this.setState({Error: 'please fill the NIC number'});
-        } else if (NIC.length < 10) {
-            this.setState({Error: 'Enter Valid NIC number'});
-        } else {
-            //alert('thank you, your form is submitted successfully');
 
-            this.setState({Error: 'thank you, your form is submitted successfully'});
-        }
-
-        Keyboard.dismiss();
+    onClickListener = viewId => {
+        Alert.alert('Alert', 'Button pressed ' + viewId);
     };
-    componentDidMount() {
-        fetch('https://www.farmbuddy.foxrilla.com/api/v1/user', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                F_Name: this.state.F_Name,
-                L_Name: this.state.L_Name,
-                NIC: this.state.NIC,
-            }),
-        });
-    }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{fontSize: 20, right: 0, marginBottom: 50}}>Sign Up</Text>
-                <Text style={{color: 'red', textAlign: 'center'}}>
-                    {this.state.Error}
-                </Text>
-                <TextInput
-                    placeholder="first name"
-                    style={styles.myText}
-                    onChangeText={F_Name => this.setState({F_Name})}
+                <View>
+                    <Text style={styles.textStyle}>Sign Up</Text>
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="First Name"
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
+                        onChangeText={firstName => this.setState({firstName})}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="Last Name"
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
+                        onChangeText={lastName => this.setState({lastName})}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="NIC number"
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
+                        onChangeText={nicNumber => this.setState({nicNumber})}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="District"
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
+                        onChangeText={district => this.setState({district})}
+                    />
+                </View>
+
+                <ReactChipsInput
+                    style={styles.inputContainer}
+                    label="Enter Fruits"
+                    initialChips={['Apple', 'Orange']}
+                    onChangeChips={chips => console.log(chips)}
+                    alertRequired={true}
+                    chipStyle={{borderColor: 'blue', backgroundColor: 'grey'}}
+                    inputStyle={{fontSize: 22}}
                 />
 
-                <TextInput
-                    placeholder="last name"
-                    style={styles.myText}
-                    onChangeText={L_Name => this.setState({L_Name})}
-                />
-
-                <TextInput
-                    placeholder="NIC number"
-                    style={styles.myText}
-                    onChangeText={NIC => this.setState({NIC})}
-                />
-
-                <TouchableOpacity
-                    // onPress={this.validation() => this.props.navigation.navigate('CropSelection', { screenName: "CropSelection" })  }
-                    onPress={this.validation}
-                    style={{
-                        backgroundColor: '#59D8A3',
-                        padding: 10,
-                        width: 250,
-                        height: 50,
-                        top: 200,
-                        borderRadius: 50,
-                    }}>
-                    <Text
-                        style={{
-                            color: 'white',
-                            textAlign: 'center',
-                            fontSize: 20,
-                            fontWeight: 'bold',
-                        }}>
-                        Sign Up
-                    </Text>
-                </TouchableOpacity>
+                <TouchableHighlight
+                    style={[styles.buttonContainer, styles.signupButton]}
+                    onPress={() => this.props.navigation.navigate('CropSelection', { screenName: "CropSelection" })}
+                >
+                    <Text style={styles.signUpText}>Sign up</Text>
+                </TouchableHighlight>
             </View>
         );
     }
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -110,12 +100,50 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#FCFCFC',
     },
-    myText: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        margin: 10,
-        padding: 10,
-        width: '90%',
-        backgroundColor: 'white',
+    inputContainer: {
+        borderBottomColor: '#F5FCFF',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 30,
+        borderBottomWidth: 1,
+        width: 380,
+        height: 45,
+        marginBottom: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    inputs: {
+        height: 45,
+        marginLeft: 16,
+        borderBottomColor: '#FFFFFF',
+        borderColor: '#DBDBDB',
+        flex: 1,
+    },
+    inputIcon: {
+        width: 30,
+        height: 30,
+        marginLeft: 15,
+        justifyContent: 'center',
+    },
+    buttonContainer: {
+        top: 50,
+        height: 45,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
+        width: 250,
+        borderRadius: 30,
+    },
+    signupButton: {
+        backgroundColor: '#59D8A3',
+    },
+    signUpText: {
+        color: 'white',
+    },
+    textStyle: {
+        fontSize: 40,
+        textAlign: 'left',
+        bottom: 50,
+        right: 100,
     },
 });

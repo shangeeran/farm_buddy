@@ -14,15 +14,15 @@ export default class FlatListCrops extends Component {
     renderItem = ({item}) => {
         return (
             <View style={{flex: 1, flexDirection: 'row', marginBottom: 30, justifyContent: 'center'}}>
-    <Image
-        style={{width: 80, height: 80, margin: 5, borderRadius: 50}}
-        source={{uri: item.image}}
-        />
+    {/*<Image*/}
+    {/*    style={{width: 80, height: 80, margin: 5, borderRadius: 50}}*/}
+    {/*    source={{uri: item.image}}*/}
+    {/*    />*/}
         <View style={{flex: 1, justifyContent: 'center', marginLeft: 5}}>
     <Text style={{fontSize: 18, color: 'green', marginBottom: 5, marginTop:20}}>
-        {item.book_title}
+        {item.Crop}
     </Text>
-        <Text style={{fontSize: 13, color: 'black', marginBottom: 20}}>{item.author}</Text>
+        <Text style={{fontSize: 13, color: 'black', marginBottom: 20}}>{item.Price}</Text>
         </View>
         </View>
     );
@@ -37,7 +37,7 @@ export default class FlatListCrops extends Component {
     //Fetching Data from the server
     componentDidMount() {
         const url =
-            'http://www.json-generator.com/api/json/get/ccLAsEcOSq?indent=1';
+            'http://localhost:5000/crops';
         fetch(url)
             .then(response => response.json())
             .then(responseJson => {

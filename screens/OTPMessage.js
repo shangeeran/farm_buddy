@@ -1,134 +1,36 @@
 import React, {Component} from 'react';
-import {
-    Image,
-    View,
-    StatusBar,
-    Text,
-    StyleSheet,
-    TouchableHighlight,
-    TextInput,
-} from 'react-native';
-import firebase from 'react-native-firebase';
+import {Image, View, StatusBar, Text, StyleSheet, TouchableHighlight, TextInput} from 'react-native';
 
-export class Message extends Component {
-    constructor() {
-        super();
-        this.unsubscribe = null;
-        this.state = {
-            user: null,
-            message: '',
-            codeInput: '',
-            phoneNumber: '+94',
-            confirmResult: null,
-        };
-    }
-
-    componentDidMount() {
-        this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({user: user.toJSON()});
-            } else {
-                // User has been signed out, reset the state
-                this.setState({
-                    user: null,
-                    message: '',
-                    codeInput: '',
-                    phoneNumber: '+94',
-                    confirmResult: null,
-                });
-            }
-        });
-    }
-
-    componentWillUnmount() {
-        if (this.unsubscribe) {
-            this.unsubscribe();
-        }
-    }
-
-    signIn = () => {
-        const {phoneNumber} = this.state;
-        this.setState({message: 'Sending code ...'});
-
-        firebase
-            .auth()
-            .signInWithPhoneNumber(phoneNumber)
-            .then((confirmResult) =>
-                this.setState({confirmResult, message: 'Code has been sent!'}),
-            )
-            .catch((error) =>
-                this.setState({
-                    message: `Sign In With Phone Number Error: ${error.message}`,
-                }),
-            );
-    };
-
-    confirmCode = () => {
-        const {codeInput, confirmResult} = this.state;
-
-        if (confirmResult && codeInput.length) {
-            confirmResult
-                .confirm(codeInput)
-                .then((user) => {
-                    this.setState({message: 'Code Confirmed!'});
-                })
-                .catch((error) =>
-                    this.setState({message: `Code Confirm Error: ${error.message}`}),
-                );
-        }
-    };
-
+class Message extends Component {
     render() {
-        const {phoneNumber} = this.state;
-
         return (
-            <View style={{padding: 25}}>
+            <View>
                 <StatusBar hidden />
                 <Image source={require('../assets/Message.png')} style={styles.img1} />
                 <Text style={styles.te1}>OTP Verification</Text>
                 <Text style={styles.te2}>
                     We will send you a One Time Password on this mobile number
                 </Text>
-                <TextInput
-                    autoFocus
-                    onChangeText={(value) => this.setState({phoneNumber: value})}
-                    placeholder="Enter Mobile Number"
-                    keyboardType="phone-pad"
-                    style={styles.TextInputStyle}
-                    value={phoneNumber}
-                />
-                <TouchableHighlight
-                    style={styles.b1}
-                    onPress={
-                        (() =>
-                            this.props.navigation.navigate('Verified', {
-                                screenName: 'Verified',
-                            }),
-                            this.signIn)
-                    }>
+                {/*<PhoneInput placeholder="Enter phone number" value={value} onChange={setValue} />*/}
+                <TextInput placeholder="Enter Mobile Number" keyboardType='phone-pad' style={styles.TextInputStyle}/>
+                <TouchableHighlight style={styles.b1}
+                                    onPress={() => this.props.navigation.navigate('Verified', { screenName: "Verified" })}
+                >
                     <Text style={styles.te3}>Proceed</Text>
                 </TouchableHighlight>
             </View>
         );
     }
-    renderMessage() {
-        const {message} = this.state;
-
-        if (!message.length) {
-            return null;
-        }
-
-        return (
-            <Text style={{padding: 5, backgroundColor: '#000', color: '#fff'}}>
-                {message}
-            </Text>
-        );
-    }
 }
+//
+// export default Message;
+// const Message: () => React$Node = () => {
+//     // const [value, setValue] = useState()
+//
+// };
 
 const styles = StyleSheet.create({
     te1: {
-        marginTop: 10,
         textAlign: 'center',
         fontSize: 20,
         fontFamily: 'product-sans',
@@ -152,7 +54,7 @@ const styles = StyleSheet.create({
     b1: {
         backgroundColor: '#4bd16f',
         color: '#000000',
-        marginTop: 70,
+        marginTop: 40,
         marginRight: 100,
         marginLeft: 100,
         textAlign: 'center',
@@ -178,3 +80,5 @@ const styles = StyleSheet.create({
         marginRight: 15,
     },
 });
+
+export default Message;

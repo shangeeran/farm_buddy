@@ -1,86 +1,61 @@
 import React, {Component} from 'react';
-import {
-    Image,
-    View,
-    StatusBar,
-    Text,
-    StyleSheet,
-    TouchableHighlight,
-} from 'react-native';
-import OTPInputView from '@twotalltotems/react-native-otp-input/dist';
-import firebase from 'react-native-firebase';
+import {Image, View, StatusBar, Text, StyleSheet, TouchableHighlight, TextInput} from 'react-native';
+import OTPInputView from "@twotalltotems/react-native-otp-input/dist";
 
-export class Verified extends Component {
-    constructor() {
-        super();
-        this.unsubscribe = null;
-        this.state = {
-            user: null,
-            message: '',
-            codeInput: '',
-            phoneNumber: '+94',
-            confirmResult: null,
-        };
-    }
+class Verified extends Component {
     render() {
-        const {codeInput} = this.state;
         return (
             <View>
                 <StatusBar hidden />
-                <Image source={require('../assets/VErified.png')} style={styles.img2} />
-                <Text style={styles.tex1}>OTP Verification</Text>
-                <Text style={styles.tex2}>Enter the OTP sent +94-xxx-xxxxxx</Text>
-                <OTPInputView
-                    pinCount={4}
-                    autoFocus
-                    onChangeText={(value) => this.setState({codeInput: value})}
-                    placeholder={'Code ... '}
-                    value={codeInput}
-                    style={styles.OTPpin}
-                    codeInputFieldStyle={styles.fieldStyle}
-                />
-                <TouchableHighlight
-                    style={styles.bt1}
-                    onPress={
-                        (this.props.navigation.navigate('Success', {
-                            screenName: 'Success',
-                        }),
-                            this.confirmCode)
-                    }>
-                    <Text style={styles.tex3}>Confirm</Text>
+                {/*<Icon name="left" size={30} color='#000000' />*/}
+                <Image source={require('../assets/VErified.png')} style={styles.img1} />
+                <Text style={styles.te1}>OTP Verification</Text>
+                <Text style={styles.te2}>
+                    Enter the OTP sent +94-xxx-xxxxxx
+                </Text>
+                <OTPInputView pinCount={4} style={styles.OTPpin} codeInputFieldStyle={styles.fieldStyle}/>
+                <TouchableHighlight style={styles.b1}
+                                    onPress={() => this.props.navigation.navigate('Success', { screenName: "Success" })}
+                >
+                    <Text style={styles.te3}>Proceed</Text>
                 </TouchableHighlight>
             </View>
         );
     }
 }
 
+// export default Verified;
+// const Verified: () => React$Node = () => {
+//     // const [value, setValue] = useState()
+//
+// };
+
 const styles = StyleSheet.create({
-    tex1: {
+    te1: {
         textAlign: 'center',
         fontSize: 20,
         fontFamily: 'product-sans',
         marginBottom: 5,
-        marginTop: 15,
     },
 
-    img2: {
+    img1: {
         justifyContent: 'center',
         height: 350,
         width: 350,
         marginTop: 75,
     },
 
-    tex2: {
+    te2: {
         textAlign: 'left',
         marginBottom: 10,
         color: '#808080',
         marginLeft: 20,
     },
 
-    bt1: {
+    b1: {
         backgroundColor: '#4bd16f',
         color: '#000000',
-        marginTop: 70,
+        marginTop: 40,
         marginRight: 100,
         marginLeft: 100,
         textAlign: 'center',
@@ -88,7 +63,7 @@ const styles = StyleSheet.create({
         height: 50,
     },
 
-    tex3: {
+    te3: {
         marginTop: 10,
         margin: 10,
         textAlign: 'center',
@@ -97,7 +72,7 @@ const styles = StyleSheet.create({
     },
 
     OTPpin: {
-        height: 50,
+        height: 40,
         marginLeft: 30,
         marginRight: 30,
     },
@@ -106,5 +81,8 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderBottomWidth: 1,
         width: 60,
+
     },
 });
+
+export default Verified;

@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    TouchableHighlight,
-    Alert, TouchableOpacity, Image,
-} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableHighlight, Alert, TouchableOpacity, Image} from 'react-native';
 
 export default class HomeScreen extends Component {
 
@@ -102,7 +95,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     image: {
-        marginTop: 240,
+        marginTop: 220,
         alignItems: 'center',
         // marginLeft: 55,
         // marginRight: 2,

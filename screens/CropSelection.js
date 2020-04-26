@@ -25,13 +25,12 @@ export default class CropsSelection extends Component {
             }),
         });
     }
-    
 
     render() {
         return (
             <View style={styles.container}>
                 <View>
-                    <Text style={{bottom: 180}}>Select your Location and Crops</Text>
+                    <Text style={{bottom: 140}}>Select your Location and Crops</Text>
                 </View>
 
                 <View style={styles.inputContainer}>
