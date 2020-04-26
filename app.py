@@ -18,7 +18,7 @@ def main():
 @app.route('/crops',methods=['GET'])
 def crops():
     cist = crop_list
-    links = {'List_oder':"Ascending","Total_crops":len(cist),"Predication":cist}
+    links = {"Total_crops":len(cist),"Predication":cist}
     return jsonify(links)
 
 

@@ -505,7 +505,8 @@ class Predict:
             },
 
         ]
-        print(list_crop)
 
-        return list_crop
+
+
+        return sorted(list_crop, key=lambda k: k['Price'],reverse=True)
 
