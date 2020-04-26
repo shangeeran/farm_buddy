@@ -6,13 +6,25 @@ export default class CropsSelection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            district: '',
+            Location: '',
         };
     }
 
     onClickListener = viewId => {
         Alert.alert('Alert', 'Button pressed ' + viewId);
     };
+    componentDidMount() {
+        fetch('https://www.farmbuddy.foxrilla.com/api/v1/user', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                Location: this.state.Location,
+            }),
+        });
+    }
 
     render() {
         return (
@@ -27,7 +39,7 @@ export default class CropsSelection extends Component {
                         placeholder="Enter you district"
                         keyboardType="email-address"
                         underlineColorAndroid="transparent"
-                        onChangeText={firstName => this.setState({firstName})}
+                        onChangeText={Location => this.setState({Location})}
                     />
                 </View>
 
