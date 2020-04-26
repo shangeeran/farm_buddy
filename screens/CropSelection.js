@@ -25,6 +25,7 @@ export default class CropsSelection extends Component {
             }),
         });
     }
+    
 
     render() {
         return (
