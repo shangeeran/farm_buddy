@@ -70,6 +70,8 @@ class Predict:
 
         dataSet = dataSet.iloc[:, 1:2]
 
+        from sklearn.preprocessing import MinMaxScaler
+
         scaler = MinMaxScaler()
 
         # fitting the training set into scaler object
@@ -101,8 +103,6 @@ class Predict:
         true_predictions = scaler.inverse_transform(test_predictions)
         true_prediction_average = sum(true_predictions) / 20
 
-        # print("Predicted Average Beans Price : " + str(true_prediction_average[0]))
-
         return round(true_prediction_average[0])
 
     def brinjal(self):
@@ -110,6 +110,8 @@ class Predict:
         dataSet = self.brinjal_csv
 
         dataSet = dataSet.iloc[:, 1:2]
+
+        from sklearn.preprocessing import MinMaxScaler
 
         scaler = MinMaxScaler()
 
@@ -150,6 +152,8 @@ class Predict:
 
         dataSet = dataSet.iloc[:, 1:2]
 
+        from sklearn.preprocessing import MinMaxScaler
+
         scaler = MinMaxScaler()
 
         # fitting the training set into scaler object
@@ -189,6 +193,8 @@ class Predict:
 
         dataSet = dataSet.iloc[:, 1:2]
 
+        from sklearn.preprocessing import MinMaxScaler
+
         scaler = MinMaxScaler()
 
         # fitting the training set into scaler object
@@ -226,6 +232,8 @@ class Predict:
         new_model = self.cabbage_model
         dataSet = self.cabbage_csv
         dataSet = dataSet.iloc[:, 1:2]
+
+        from sklearn.preprocessing import MinMaxScaler
 
         scaler = MinMaxScaler()
 
@@ -385,46 +393,47 @@ class Predict:
 
         return round(true_prediction_average[0])
 
-    # def tomatoes(self):
-    #     new_model = self.tomatoes_model
-    #     dataSet = self.tomatoes_csv
-    #
-    #     dataSet = dataSet.iloc[:, 1:2]
-    #
-    #     from sklearn.preprocessing import MinMaxScaler
-    #
-    #     scaler = MinMaxScaler()
-    #
-    #     # fitting the training set into scaler object
-    #     scaler.fit(dataSet)
-    #
-    #     scaled_test = scaler.transform(dataSet)
-    #
-    #     n_inputs = 60
-    #     n_features = 1
-    #
-    #     test_predictions = []
-    #
-    #     # taking the last 60 prices to predict the next output
-    #     first_eval_batch = scaled_test[-n_inputs:]
-    #
-    #     # reshaping this to 3d array
-    #     current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
-    #
-    #     for i in range(20):
-    #         # predicting the output by passing the currebt_batch
-    #         current_prediction = new_model.predict(current_batch)[0]
-    #
-    #         # appending the prediction to the test_predictions array
-    #         test_predictions.append(current_prediction)
-    #
-    #         # updating the current_batch
-    #         current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
-    #
-    #     true_predictions = scaler.inverse_transform(test_predictions)
-    #     true_prediction_average = sum(true_predictions) / 20
-    #
-    #     return round(true_prediction_average[0])
+    def tomatoes(self):
+        new_model = self.tomatoes_model
+        dataSet = self.tomatoes_csv
+
+        dataSet = dataSet.iloc[:, 1:2]
+
+        from sklearn.preprocessing import MinMaxScaler
+
+        scaler = MinMaxScaler()
+
+        # fitting the training set into scaler object
+        scaler.fit(dataSet)
+
+        scaled_test = scaler.transform(dataSet)
+
+        n_inputs = 20
+        n_features = 1
+
+        test_predictions = []
+
+        # taking the last 60 prices to predict the next output
+        first_eval_batch = scaled_test[-n_inputs:]
+
+        # reshaping this to 3d array
+        current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
+
+        for i in range(20):
+            # predicting the output by passing the currebt_batch
+            current_prediction = new_model.predict(current_batch)[0]
+
+            # appending the prediction to the test_predictions array
+            test_predictions.append(current_prediction)
+
+            # updating the current_batch
+            current_batch = np.append(current_batch[:, 1:, :], [[current_prediction]], axis=1)
+
+        true_predictions = scaler.inverse_transform(test_predictions)
+        true_prediction_average = sum(true_predictions) / 20
+
+
+        return round(true_prediction_average[0])
 
 
     def all(self):
@@ -436,7 +445,7 @@ class Predict:
         potatoes = self.potatoes()
         pumpkin = self.pumpkin()
         redOnions = self.redOnions()
-        # tomatoes = self.tomatoes()
+        tomatoes = self.tomatoes()
 
 
 
@@ -488,12 +497,12 @@ class Predict:
                 "Month": time.strftime("%Y-%m"),
                 "Price": redOnions
             },
-            # {
-            #     "Crop": "Tomatoes",
-            #     "Crop_code": "CR-009",
-            #     "Month": time.strftime("%Y-%m"),
-            #     "Price": tomatoes
-            # },
+            {
+                "Crop": "Tomatoes",
+                "Crop_code": "CR-009",
+                "Month": time.strftime("%Y-%m"),
+                "Price": tomatoes
+            },
 
         ]
         print(list_crop)
