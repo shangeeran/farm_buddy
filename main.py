@@ -27,4 +27,4 @@ predict_obj = Predict()
 crop_list = predict_obj.all()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
