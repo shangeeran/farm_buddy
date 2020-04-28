@@ -31,18 +31,14 @@ export default class App extends Component {
             name="Start"
             component={Start}
             options={{
-                title: "Welcome to FarmBuddy",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="OnBoard"
             component={OnBoard}
             options={{
-                title: "FarmBuddy",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
 
@@ -50,54 +46,42 @@ export default class App extends Component {
             name="Message"
             component={Message}
             options={{
-                title: "FarmBuddy",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="Verified"
             component={Verified}
             options={{
-                title: "FarmBuddy",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="Success"
             component={Success}
             options={{
-                title: "Success",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="SignUpView"
             component={SignUpView}
             options={{
-                title: "You are",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
         options={{
-            title: "Home Screen",
-            headerStyle: { backgroundColor: "white" },
-            headerTintColor: "#000000"
+            headerShown: false
         }}
     />
       <Stack.Screen
         name="Dashboard"
         component={Dashboard}
         options={{
-          title: "Dashboard",
-          headerStyle: { backgroundColor: "white" },
-          headerTintColor: "#000000"
+            headerShown: false
         }}
       />
         <Stack.Screen
@@ -105,9 +89,7 @@ export default class App extends Component {
             component={Weather}
             options={{
                 // headerTitleStyle: { alignSelf: 'center' },
-                title: "Weather",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
@@ -115,9 +97,7 @@ export default class App extends Component {
             component={CropSelection}
             options={{
                 // headerTitleStyle: { alignSelf: 'center' },
-                title: "Crop Selection",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
 
@@ -126,9 +106,7 @@ export default class App extends Component {
             name="FlatListCrops"
             component={FlatListCrops}
             options={{
-                title: "Flat List of Crops",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
 
@@ -137,36 +115,28 @@ export default class App extends Component {
             component={ProfileSetting1}
             options={{
                 // headerTitleStyle: { alignSelf: 'center' },
-                title: "Settings",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="ProfileSetting2"
             component={ProfileSetting2}
             options={{
-                title: "Settings",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="ProfileSetting3"
             component={ProfileSetting3}
             options={{
-                title: "Settings",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
         <Stack.Screen
             name="ProfileSetting4"
             component={ProfileSetting4}
             options={{
-                title: "Settings",
-                headerStyle: { backgroundColor: "white" },
-                headerTintColor: "#000000"
+                headerShown: false
             }}
         />
 
