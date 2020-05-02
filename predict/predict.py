@@ -78,22 +78,17 @@ class Predict:
         scaler.fit(dataSet)
 
         scaled_test = scaler.transform(dataSet)
-
         n_inputs = 60
         n_features = 1
-
         test_predictions = []
-
         # taking the last 60 prices to predict the next output
         first_eval_batch = scaled_test[-n_inputs:]
-
         # reshaping this to 3d array
         current_batch = first_eval_batch.reshape((1, n_inputs, n_features))
 
         for i in range(20):
             # predicting the output by passing the currebt_batch
             current_prediction = new_model.predict(current_batch)[0]
-
             # appending the prediction to the test_predictions array
             test_predictions.append(current_prediction)
 
@@ -446,9 +441,6 @@ class Predict:
         pumpkin = self.pumpkin()
         redOnions = self.redOnions()
         tomatoes = self.tomatoes()
-
-
-
         list_crop = [{
             "Crop": "Beans",
             "Crop_code": "CR-001",
@@ -505,8 +497,6 @@ class Predict:
             },
 
         ]
-
-
 
         return sorted(list_crop, key=lambda k: k['Price'],reverse=True)
 
