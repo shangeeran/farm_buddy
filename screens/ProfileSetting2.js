@@ -3,7 +3,18 @@ import {StyleSheet, Button, View, Text, Image, TextInput, TouchableOpacity} from
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 export default class proSettingSec extends React.Component {
+    state = {
+        proSettingSecReq:{}
+    };
+
+    onChangeText = (refer, value) => {
+        const {proSettingSecReq} = this.state;
+        proSettingSecReq[refer] = value;
+        this.setState({proSettingSecReq})
+    };
+
     render() {
+        console.debug(this.state.proSettingSecReq);
         return (
             <KeyboardAwareScrollView
                 keyboardShouldPersistTaps="handled"
@@ -13,7 +24,7 @@ export default class proSettingSec extends React.Component {
             >
                 <View style={styles.container}>
                     <View style={styles.proImg}>
-                        <Image source={require('../assets/farmer.png')} style={{width: 150, height: 150}} />
+                        <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
                     <View style={styles.bottomContainer}>
@@ -23,7 +34,7 @@ export default class proSettingSec extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={val => this.onChangeText('Description', val)}
+                            onChangeText={val => this.onChangeText('description', val)}
                         />
                         <View style={styles.textVisible}>
                             <Text>Crops</Text>
@@ -31,7 +42,7 @@ export default class proSettingSec extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={val => this.onChangeText('Crops', val)}
+                            onChangeText={val => this.onChangeText('crops', val)}
                         />
                     </View>
 

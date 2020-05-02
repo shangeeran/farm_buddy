@@ -3,17 +3,19 @@ import {StyleSheet, Button, View, Text, Image, TextInput, TouchableOpacity} from
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 export default class proSetting extends React.Component {
-    // state = {
-    //     username: '',
-    //     password: '',
-    //     email: '',
-    //     phone_number: '',
-    // };
-    // onChangeText = (key, val) => {
-    //     this.setState({[key]: val});
-    // };
+    state = {
+        userReq:{}
+    };
+
+    onChangeText = (refer, value) => {
+        const {userReq} = this.state;
+        userReq[refer] = value;
+        this.setState({userReq})
+    };
+
 
     render() {
+        console.debug(this.state.userReq);
         return (
             <KeyboardAwareScrollView
                 keyboardShouldPersistTaps="handled"
@@ -23,7 +25,7 @@ export default class proSetting extends React.Component {
             >
                 <View style={styles.container}>
                     <View style={styles.proImg}>
-                        <Image source={require('../assets/farmer.png')} style={{width: 150, height: 150}} />
+                        <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
                     <View style={styles.textVisible}>
@@ -32,7 +34,7 @@ export default class proSetting extends React.Component {
                     <TextInput
                         style={styles.input}
                         autoCapitalize="none"
-                        onChangeText={val => this.onChangeText('fName', val)}
+                        onChangeText={val => this.onChangeText('firstName', val)}
                     />
                     <View style={styles.textVisible}>
                         <Text>Last Name</Text>
@@ -40,7 +42,7 @@ export default class proSetting extends React.Component {
                     <TextInput
                         style={styles.input}
                         autoCapitalize="none"
-                        onChangeText={val => this.onChangeText('lName', val)}
+                        onChangeText={val => this.onChangeText('lastName', val)}
                     />
                     <View style={styles.textVisible}>
                         <Text>NIC No</Text>
@@ -48,7 +50,7 @@ export default class proSetting extends React.Component {
                     <TextInput
                         style={styles.input}
                         autoCapitalize="none"
-                        onChangeText={val => this.onChangeText('nic', val)}
+                        onChangeText={val => this.onChangeText('nicNo', val)}
                     />
                     <View style={styles.textVisible}>
                         <Text>Location</Text>

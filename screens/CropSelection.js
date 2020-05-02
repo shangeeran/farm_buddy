@@ -13,6 +13,7 @@ export default class CropsSelection extends Component {
     onClickListener = viewId => {
         Alert.alert('Alert', 'Button pressed ' + viewId);
     };
+
     componentDidMount() {
         fetch('https://www.farmbuddy.foxrilla.com/api/v1/user', {
             method: 'POST',
@@ -27,6 +28,7 @@ export default class CropsSelection extends Component {
     }
 
     render() {
+
         return (
             <View style={styles.container}>
                 <View>
