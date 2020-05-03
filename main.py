@@ -3,7 +3,7 @@ import json
 
 from predict.predict import Predict
 
-__name__ = '__main__'
+# __name__ = '__main__'
 app = Flask(__name__)
 
 
@@ -27,4 +27,4 @@ predict_obj = Predict()
 crop_list = predict_obj.all()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)

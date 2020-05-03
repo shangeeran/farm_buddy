@@ -1,4 +1,6 @@
 Flask
+gunicorn
+setuptools==41.0.0
 tensorflow
 keras
 scikit-learn
