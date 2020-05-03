@@ -19,14 +19,33 @@ app.listen(3000, () => {
     console.log("server running on port 3000");
 })
 
-app.get('/test', function(req, res,) {
+app.get('/', function(req, res,) {
     res.json({
-    "F_Name":"Sangeeth",
-    "L_Name":"Amirthanathan",
-    "Location":"mannar",
-    "NIC":"961690994V",
-    "Phone_Number":"0765474533",
-    "Crops":["c001"]
+        "API":"Farm buddy",
+        "version":"1.0",
+        "last modified":"25/04/2020",
+        "paths":[
+            {"Update user":"/user - PUT","Body":{
+                "F_Name":"first name",
+                "L_Name":"last name",
+                "Location":"location",
+                "NIC":"00000000V",
+                "Phone_Number":"076123456",
+                "Crops":["c001"]
+            }},
+            {"Create user":"/user - POST","Body":{
+                "F_Name":"first name",
+                "L_Name":"last name",
+                "Location":"location",
+                "NIC":"00000000V",
+                "Phone_Number":"076123456",
+                "Crops":["c001"]
+            }},
+            {"Get user":"/user - Get","Body":{
+                "Phone_Number":"076123456",
+            }},
+            
+            ]
     })
 });
 
@@ -57,20 +76,20 @@ app.put('/user', function(req,res){
                     L_Name: L_Name,
                     Location: Location,
                     NIC: NIC,
-        
                     Crops: Crops
                 };
                 let update = db.collection('Farmers').doc(userId).update(farmerData).then(()=>console.log('updated'));
+                
                 console.log(userId);
-                res.json(farmerData);
-                res.sendStatus(201);
+                res.status(201).json(farmerData);
+                
                
             }else{
                     
                     res.sendStatus(404);
                 
-                    console.log("NIC does not exist");
-                    // res.sendStatus(200)
+                    console.log("Phone Number does not exist");
+                    
             }
         })
         .catch(err => {
@@ -83,7 +102,7 @@ app.put('/user', function(req,res){
 
 })
 
-app.post('/signIn', function(req,res){
+app.get('/user', function(req,res){
     var Phone_Number = req.body.Phone_Number;
 
     const p3 = db.collection('Farmers').where('Phone_Number','==',Phone_Number).get();
@@ -97,31 +116,31 @@ app.post('/signIn', function(req,res){
             }
         });
         if(test===true){
+            
             console.log(user);
-            res.json(user);
-            res.sendStatus(200);
+            res.status(200).json(user);
+            
         }else{
     
                 res.sendStatus(401);
         
                 console.log("phoneNumber does not exist");
-                // res.sendStatus(200)
+                
         }
-    }).catch(err => {
+    })
+    .catch(err => {
         console.log('Error getting documents', err);
     });
 });
 
-app.post('/signUp', function(req,res) {
+app.post('/user', function(req,res) {
 
-    
     var F_Name = req.body.F_Name;
     var L_Name = req.body.L_Name;
     var Location = req.body.Location;
     var NIC = req.body.NIC;
     var Phone_Number = req.body.Phone_Number;
     var Crops = req.body.Crops;
-
 
     if(F_Name!=="" || L_Name!=="" || Location!=="" || NIC!=="" || Phone_Number!==""){
         const p3 = db.collection('Farmers').where('NIC','==',NIC).get();
@@ -151,7 +170,7 @@ app.post('/signUp', function(req,res) {
                     res.sendStatus(200);
                 
                     console.log("NIC does not exist");
-                    // res.sendStatus(200)
+                    
             }
         })
         .catch(err => {
