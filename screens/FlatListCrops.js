@@ -18,11 +18,15 @@ export default class FlatListCrops extends Component {
     {/*    style={{width: 80, height: 80, margin: 5, borderRadius: 50}}*/}
     {/*    source={{uri: item.image}}*/}
     {/*    />*/}
-        <View style={{flex: 1, justifyContent: 'center', marginLeft: 5}}>
-    <Text style={{fontSize: 18, color: 'green', marginBottom: 5, marginTop:20}}>
-        {item.Crop}
-    </Text>
-        <Text style={{fontSize: 13, color: 'black', marginBottom: 20}}>{item.Price}</Text>
+        <View style={{flex: 1, marginLeft: 5, flexDirection: 'row'}}>
+            <View>
+                <Text style={styles.crop}>{item.Crop}</Text>
+                {/*<Text style={styles.price}>Rs {item.Price}.00</Text>*/}
+            </View>
+            <View>
+                {/*<Text style={styles.crop}>{item.Crop}</Text>*/}
+                <Text style={styles.price}>Rs {item.Price}.00</Text>
+            </View>
         </View>
         </View>
     );
@@ -37,12 +41,12 @@ export default class FlatListCrops extends Component {
     //Fetching Data from the server
     componentDidMount() {
         const url =
-            'http://localhost:5000/crops';
-        fetch(url)
+            "http://10.0.2.2:5000/crops";
+        fetch(url,{method: "GET"})
             .then(response => response.json())
             .then(responseJson => {
                 this.setState({
-                    dataSource: responseJson.book_array
+                    dataSource: responseJson.Predication
                 });
             })
             .catch(error => {
@@ -69,4 +73,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F5FCFF',
     },
+    crop: {
+        marginLeft: 20,
+        fontSize: 28,
+        color: 'green',
+        fontWeight: 'bold',
+        marginBottom: 5,
+        marginTop:20
+    },
+    price: {
+        paddingTop: 28,
+        paddingLeft: 40,
+        fontSize: 20,
+        color: '#F37358',
+        fontWeight: 'bold',
+        marginBottom: 20
+    }
 });

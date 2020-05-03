@@ -2,9 +2,6 @@ import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {View, StatusBar, ImageBackground, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-// import {NavigationContainer} from '@react-navigation/native';
-// import {createStackNavigator} from '@react-navigation/stack';
-// import OnBoard from './OnBoard';
 
 export class Start extends Component {
     constructor() {
@@ -52,7 +49,7 @@ const styles = StyleSheet.create({
     },
 
     b1: {
-        marginTop: 320,
+        marginTop: 319,
         marginLeft: 250,
         // marginRight: 110,
         backgroundColor: '#05C167',
@@ -69,20 +66,3 @@ const styles = StyleSheet.create({
     },
 });
 
-// export default class App extends Component {
-//     constructor() {
-//         super();
-//     }
-//     render() {
-//         return (
-//             <NavigationContainer>
-//                 <Stack.Navigator>
-//                     <Stack.Screen name="Main" component={Start} />
-//                     <Stack.Screen name="OnBoard" component={OnBoard} />
-//                 </Stack.Navigator>
-//             </NavigationContainer>
-//         );
-//     }
-// }
-//
-// const Stack = createStackNavigator();

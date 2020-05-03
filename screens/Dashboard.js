@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 
-
 export default class Dashboard extends Component {
     render() {
         return (

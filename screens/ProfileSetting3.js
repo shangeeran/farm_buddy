@@ -23,7 +23,7 @@ export default class proSettingThird extends Component {
             >
                 <View style={styles.container}>
                     <View style={styles.proImg}>
-                        <Image source={require('./assets/farmer.png')} style={{width: 150, height: 150}} />
+                        <Image source={require('../assets/farmer.png')} style={{width: 150, height: 150}} />
                     </View>
 
                     <View style={styles.text}>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         padding: '5%'
     },
     buttonContainer : {
-        bottom:0,
+        bottom:40,
         marginTop:150,
         marginBottom: 40,
         borderWidth: 1,

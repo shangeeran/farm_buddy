@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Button, View, Text, Image, TouchableOpacity} from 'react-native';
 
-
 export default class proSettingEnd extends React.Component {
     render() {
         return (
